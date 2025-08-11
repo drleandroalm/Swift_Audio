@@ -1,8 +1,13 @@
 # Swift Scribe - AI-Powered Speech-to-Text Private Transcription App for iOS 26 & macOS 26+
+[![Swift](https://img.shields.io/badge/Swift-6.1+-orange.svg)](https://swift.org)
 
 > **Real-time voice transcription, advanced speaker diarization, on-device AI processing, and intelligent note-taking exclusively for iOS 26 & macOS 26 and above**
 
 Uses Apple's new Foundation Model Framework and SpeechTranscriber. Requires macOS 26 to run and compile the project. The goal is to demonstrate how easy it is now to build local, AI-first apps.
+
+The goal of this is mostly to act as an example for others looking to work with the new models and [FluidAudio](https://github.com/FluidInference/FluidAudio). We will probably not actively maintain this unless there's significant traction. If you have problem, please consider joining our discord to chat more about this! 
+
+[![Discord](https://img.shields.io/badge/Discord-Join%20Chat-7289da.svg)](https://discord.gg/WNsvaCtmDe)
 
 ## 🎯 Overview
 
