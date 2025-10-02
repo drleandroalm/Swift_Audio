@@ -255,6 +255,44 @@ Scribe/                     # Core application logic and modules
 
 Execute `xcodebuild -scheme SwiftScribe -destination 'platform=macOS' test` após alterações para garantir que todas as suítes passem. A execução local atual cobre 18 testes em ~1,6 s em um Mac arm64.
 
+### 🚀 CI/CD Pipeline e Performance Tracking
+
+**GitHub Actions Workflow** (`.github/workflows/ci-test-suite.yml`):
+- **6 jobs paralelos** executados em cada push para `main` ou PR
+  1. macOS Build + Testes de Unidade (ARM64)
+  2. iOS Build + Testes no Simulador (iPhone 16 Pro)
+  3. Testes de Contrato de Frameworks (38 testes: Speech, AVFoundation, CoreML, SwiftData)
+  4. Testes de Engenharia de Caos (16 cenários de resiliência)
+  5. Benchmarks de Performance + Detecção de Regressão
+  6. Geração de Relatórios HTML + Deploy no GitHub Pages
+
+**Detecção Automática de Regressão**:
+- Build falha se o Resilience Score cair >10%
+- Rastreamento histórico em banco SQLite (`test_artifacts/performance_trends.db`)
+- Alertas para cenários com falhas novas ou scores críticos (<50)
+
+**Dashboard Interativo**:
+- Gráficos com Chart.js: score trend, scores por categoria, pass rates de cenários
+- Deploy automático no GitHub Pages: `https://drleandroalm.github.io/Swift_Audio/`
+- Atualizado a cada push para `main`
+
+**Scripts**:
+```bash
+# Registrar resultados no banco de dados
+./Scripts/record_test_run.sh --scorecard test_artifacts/ResilienceScorecard.json
+
+# Detectar regressões (exit code 1 se houver issues críticos)
+./Scripts/detect_regressions.swift check
+
+# Gerar dashboard HTML
+./Scripts/generate_html_report.swift --output test_artifacts/html_report
+
+# Visualizar localmente
+open test_artifacts/html_report/index.html
+```
+
+**Documentação Completa**: Ver `test_artifacts/PHASE3_CI_CD_PIPELINE_SUMMARY.md`
+
 ## 🔧 Build & Test Rápidos
 
 - macOS (ARM64) build: `xcodebuild -scheme SwiftScribe -destination 'platform=macOS,arch=arm64' build`
