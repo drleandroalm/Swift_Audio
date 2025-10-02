@@ -161,7 +161,7 @@ class FoundationModelsHelper {
         deterministic: Bool = false
     ) async throws -> String {
         let session = LanguageModelSession(
-            instructions: instructions ?? "You are a helpful assistant."
+            instructions: instructions ?? "Você é um assistente prestativo."
         )
 
         let options = deterministic ? deterministicOptions() : nil
@@ -180,11 +180,11 @@ enum FoundationModelsError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .contextWindowExceeded:
-            return "The conversation has become too long. Please start a new session."
+            return "A conversa ficou muito longa. Inicie uma nova sessão."
         case .unsupportedLanguage:
-            return "The current language or locale is not supported by Foundation Models."
+            return "O idioma ou localidade atual não é compatível com os Foundation Models."
         case .generationFailed(let error):
-            return "Failed to generate content: \(error.localizedDescription)"
+            return "Não foi possível gerar conteúdo: \(error.localizedDescription)"
         }
     }
 }
@@ -206,7 +206,7 @@ class FoundationModelsSessionManager {
         }
 
         let newSession = LanguageModelSession(
-            instructions: instructions ?? "You are a helpful assistant."
+            instructions: instructions ?? "Você é um assistente prestativo."
         )
         sessions[id] = newSession
         return newSession

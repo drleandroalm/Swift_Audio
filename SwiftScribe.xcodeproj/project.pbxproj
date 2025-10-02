@@ -3,17 +3,103 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 90;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C70FF5082E276CF400B8B729 /* FluidAudio in Frameworks */ = {isa = PBXBuildFile; productRef = C70FF5072E276CF400B8B729 /* FluidAudio */; };
+		29297D44F4974B8A92494D0D /* SwiftScribe.app in Frameworks */ = {isa = PBXBuildFile; fileRef = 56177C7C2DA2E84500A2A2BB /* SwiftScribe.app */; };
+		3251CD592E8A3AD3000C5E53 /* SwiftScribePlayground.playground in Resources */ = {isa = PBXBuildFile; fileRef = 3251CD582E8A3AD3000C5E53 /* SwiftScribePlayground.playground */; };
+		85F1A2EF3F00466BA9F9236D /* ScribeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C248BC98FA2D48D1913C12F7 /* ScribeTests.swift */; };
+		8A7B6C5D4E3F2A1B0C9D8E7F /* OfflineModelsVerification_iOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9C2D5B7A8E4F18B5A6C3D1 /* OfflineModelsVerification_iOS_Tests.swift */; };
+		A6B28CFE94C54A85B1DA88C5 /* SwiftDataPersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05116285474D49DEBD9C6093 /* SwiftDataPersistenceTests.swift */; };
+		D9FEE12C5BA844E0B8CC77AF /* MemoAIFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9984AE24E64C7DA7A1906D /* MemoAIFlowTests.swift */; };
+		E1D7C5A63AB149B9A6FC0123 /* DiarizationManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3755BFA897C4F38A85EC524 /* DiarizationManagerTests.swift */; };
+		ED12724879A845E7955E5FF9 /* RecordingFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2A39408EED4F24AFBE2723 /* RecordingFlowTests.swift */; };
+		F0A1B2C33D4E4A0A9F112233 /* speaker-diarization-coreml in Resources */ = {isa = PBXBuildFile; fileRef = F0A1B2C23D4E4A0A9F112233 /* speaker-diarization-coreml */; };
+		FAASRBF0000000000000001 /* AudioConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAASRFR0000000000000001 /* AudioConverter.swift */; };
+		FAASRBF0000000000000002 /* MLModel+Prediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAASRFR0000000000000002 /* MLModel+Prediction.swift */; };
+		FAASRBF0000000000000003 /* AsrModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAASRFR0000000000000010 /* AsrModels.swift */; };
+		FAASRBF0000000000000004 /* ChunkProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAASRFR0000000000000011 /* ChunkProcessor.swift */; };
+		FAASRBF0000000000000005 /* TdtDecoderV3.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAASRFR0000000000000012 /* TdtDecoderV3.swift */; };
+		FAASRBF0000000000000006 /* TdtConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAASRFR0000000000000013 /* TdtConfig.swift */; };
+		FAASRBF0000000000000007 /* TdtDecoderState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAASRFR0000000000000014 /* TdtDecoderState.swift */; };
+		FAASRBF0000000000000008 /* TdtHypothesis.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAASRFR0000000000000015 /* TdtHypothesis.swift */; };
+		FAASRBF0000000000000009 /* TdtDecoderV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAASRFR0000000000000016 /* TdtDecoderV2.swift */; };
+		FAASRBF000000000000000A /* EncoderFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAASRFR0000000000000017 /* EncoderFrameView.swift */; };
+		FAASRBF000000000000000B /* AsrManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAASRFR0000000000000018 /* AsrManager.swift */; };
+		FAASRBF000000000000000C /* StreamingAsrSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAASRFR0000000000000019 /* StreamingAsrSession.swift */; };
+		FAASRBF000000000000000D /* StreamingAsrManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAASRFR000000000000001A /* StreamingAsrManager.swift */; };
+		FAASRBF000000000000000E /* AsrTranscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAASRFR000000000000001B /* AsrTranscription.swift */; };
+		FAASRBF000000000000000F /* MLArrayCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAASRFR000000000000001C /* MLArrayCache.swift */; };
+		FAASRBF0000000000000010 /* AsrTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAASRFR000000000000001D /* AsrTypes.swift */; };
+		FAASRBF0000000000000011 /* AudioBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAASRFR000000000000001E /* AudioBuffer.swift */; };
+		FAASRBF0000000000000012 /* PerformanceMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAASRFR000000000000001F /* PerformanceMetrics.swift */; };
+		FAASRBF0000000000000013 /* ANEOptimizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAASRFR0000000000000020 /* ANEOptimizer.swift */; };
+		FAASRBF0000000000000014 /* ASRConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAASRSHR0000000000000002 /* ASRConstants.swift */; };
+		FAASRBF0000000000000015 /* ANEMemoryUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAASRSHR0000000000000003 /* ANEMemoryUtils.swift */; };
+		FAASRBF0000000000000016 /* AppLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAASRSHR0000000000000001 /* AppLogger.swift */; };
+		FAASRBF00000000000000DU /* DownloadUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAASRFR00000000000000DU /* DownloadUtils.swift */; };
+		OFFVERMACBF0000000001 /* OfflineModelsVerificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OFFVERMACFR0000000001 /* OfflineModelsVerificationTests.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		8E911820234B41C4A0991AE7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56177C742DA2E84500A2A2BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56177C7B2DA2E84500A2A2BB;
+			remoteInfo = SwiftScribe;
+		};
+		9F9F9F9F9F9F9F9F9F9F9F9F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56177C742DA2E84500A2A2BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56177C7B2DA2E84500A2A2BB;
+			remoteInfo = SwiftScribe;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		05116285474D49DEBD9C6093 /* SwiftDataPersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataPersistenceTests.swift; sourceTree = "<group>"; };
+		2F9984AE24E64C7DA7A1906D /* MemoAIFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoAIFlowTests.swift; sourceTree = "<group>"; };
+		3251CD572E8A3AD3000C5E53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text; name = Base; path = Base.lproj/SwiftScribePlayground.playground; sourceTree = "<group>"; };
+		3251CD5A2E8A3C3D000C5E53 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text; name = "pt-BR"; path = "pt-BR.lproj/SwiftScribePlayground.playground"; sourceTree = "<group>"; };
+		3251CD5B2E8A3C44000C5E53 /* en */ = {isa = PBXFileReference; lastKnownFileType = text; name = en; path = en.lproj/SwiftScribePlayground.playground; sourceTree = "<group>"; };
+		3E9C2D5B7A8E4F18B5A6C3D1 /* OfflineModelsVerification_iOS_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineModelsVerification_iOS_Tests.swift; sourceTree = "<group>"; };
 		56177C7C2DA2E84500A2A2BB /* SwiftScribe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftScribe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A3C7B2A1E8C4F0D9B7A3E2C /* ScribeTests_iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScribeTests_iOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		785079145B6CEF6E2D011C0E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		BB2A39408EED4F24AFBE2723 /* RecordingFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingFlowTests.swift; sourceTree = "<group>"; };
+		C0F405AE0488422C8CEAC58F /* ScribeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScribeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C248BC98FA2D48D1913C12F7 /* ScribeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScribeTests.swift; sourceTree = "<group>"; };
 		ECC876D74CE254E1D1BC74C5 /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
+		F0A1B2C23D4E4A0A9F112233 /* speaker-diarization-coreml */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "speaker-diarization-coreml"; sourceTree = "<group>"; };
+		F3755BFA897C4F38A85EC524 /* DiarizationManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiarizationManagerTests.swift; sourceTree = "<group>"; };
+		FAASRFR0000000000000001 /* AudioConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AudioConverter.swift; path = Disabled_FluidAudio/AudioConverter.swift; sourceTree = "<group>"; };
+		FAASRFR0000000000000002 /* MLModel+Prediction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MLModel+Prediction.swift"; path = "Disabled_FluidAudio/MLModel+Prediction.swift"; sourceTree = "<group>"; };
+		FAASRFR0000000000000010 /* AsrModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AsrModels.swift; path = Disabled_FluidAudio/ASR/AsrModels.swift; sourceTree = "<group>"; };
+		FAASRFR0000000000000011 /* ChunkProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChunkProcessor.swift; path = Disabled_FluidAudio/ASR/ChunkProcessor.swift; sourceTree = "<group>"; };
+		FAASRFR0000000000000012 /* TdtDecoderV3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TdtDecoderV3.swift; path = Disabled_FluidAudio/ASR/TDT/TdtDecoderV3.swift; sourceTree = "<group>"; };
+		FAASRFR0000000000000013 /* TdtConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TdtConfig.swift; path = Disabled_FluidAudio/ASR/TDT/TdtConfig.swift; sourceTree = "<group>"; };
+		FAASRFR0000000000000014 /* TdtDecoderState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TdtDecoderState.swift; path = Disabled_FluidAudio/ASR/TDT/TdtDecoderState.swift; sourceTree = "<group>"; };
+		FAASRFR0000000000000015 /* TdtHypothesis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TdtHypothesis.swift; path = Disabled_FluidAudio/ASR/TDT/TdtHypothesis.swift; sourceTree = "<group>"; };
+		FAASRFR0000000000000016 /* TdtDecoderV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TdtDecoderV2.swift; path = Disabled_FluidAudio/ASR/TDT/TdtDecoderV2.swift; sourceTree = "<group>"; };
+		FAASRFR0000000000000017 /* EncoderFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EncoderFrameView.swift; path = Disabled_FluidAudio/ASR/TDT/EncoderFrameView.swift; sourceTree = "<group>"; };
+		FAASRFR0000000000000018 /* AsrManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AsrManager.swift; path = Disabled_FluidAudio/ASR/AsrManager.swift; sourceTree = "<group>"; };
+		FAASRFR0000000000000019 /* StreamingAsrSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StreamingAsrSession.swift; path = Disabled_FluidAudio/ASR/Streaming/StreamingAsrSession.swift; sourceTree = "<group>"; };
+		FAASRFR000000000000001A /* StreamingAsrManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StreamingAsrManager.swift; path = Disabled_FluidAudio/ASR/Streaming/StreamingAsrManager.swift; sourceTree = "<group>"; };
+		FAASRFR000000000000001B /* AsrTranscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AsrTranscription.swift; path = Disabled_FluidAudio/ASR/AsrTranscription.swift; sourceTree = "<group>"; };
+		FAASRFR000000000000001C /* MLArrayCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MLArrayCache.swift; path = Disabled_FluidAudio/ASR/MLArrayCache.swift; sourceTree = "<group>"; };
+		FAASRFR000000000000001D /* AsrTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AsrTypes.swift; path = Disabled_FluidAudio/ASR/AsrTypes.swift; sourceTree = "<group>"; };
+		FAASRFR000000000000001E /* AudioBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AudioBuffer.swift; path = Disabled_FluidAudio/ASR/AudioBuffer.swift; sourceTree = "<group>"; };
+		FAASRFR000000000000001F /* PerformanceMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PerformanceMetrics.swift; path = Disabled_FluidAudio/ASR/PerformanceMetrics.swift; sourceTree = "<group>"; };
+		FAASRFR0000000000000020 /* ANEOptimizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ANEOptimizer.swift; path = Disabled_FluidAudio/ASR/ANEOptimizer.swift; sourceTree = "<group>"; };
+		FAASRFR00000000000000DU /* DownloadUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DownloadUtils.swift; path = Disabled_FluidAudio/DownloadUtils.swift; sourceTree = "<group>"; };
+		FAASRPROD00000000000001 /* libFluidAudio-ASR.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libFluidAudio-ASR.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAASRSHR0000000000000001 /* AppLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppLogger.swift; path = Scribe/Audio/FluidAudio/Shared/AppLogger.swift; sourceTree = "<group>"; };
+		FAASRSHR0000000000000002 /* ASRConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ASRConstants.swift; path = Scribe/Audio/FluidAudio/Shared/ASRConstants.swift; sourceTree = "<group>"; };
+		FAASRSHR0000000000000003 /* ANEMemoryUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ANEMemoryUtils.swift; path = Scribe/Audio/FluidAudio/Shared/ANEMemoryUtils.swift; sourceTree = "<group>"; };
+		OFFVERMACFR0000000001 /* OfflineModelsVerificationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineModelsVerificationTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -27,22 +113,61 @@
 /* Begin PBXFrameworksBuildPhase section */
 		56177C792DA2E84500A2A2BB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
-				C70FF5082E276CF400B8B729 /* FluidAudio in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A6B7C8D9E0F1A2B3C4D5E6F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		B77DCAF5CE60477BAD70F91A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+				29297D44F4974B8A92494D0D /* SwiftScribe.app in Frameworks */,
+			);
+		};
+		FAASRFRM00000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0447C37FE5D34800ADF1D713 /* ScribeTests */ = {
+			isa = PBXGroup;
+			children = (
+				C248BC98FA2D48D1913C12F7 /* ScribeTests.swift */,
+				F3755BFA897C4F38A85EC524 /* DiarizationManagerTests.swift */,
+				05116285474D49DEBD9C6093 /* SwiftDataPersistenceTests.swift */,
+				2F9984AE24E64C7DA7A1906D /* MemoAIFlowTests.swift */,
+				BB2A39408EED4F24AFBE2723 /* RecordingFlowTests.swift */,
+				OFFVERMACFR0000000001 /* OfflineModelsVerificationTests.swift */,
+			);
+			path = ScribeTests;
+			sourceTree = "<group>";
+		};
+		3C1F9E7DAB564D8B8A8FE1C2 /* ScribeTests_iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3E9C2D5B7A8E4F18B5A6C3D1 /* OfflineModelsVerification_iOS_Tests.swift */,
+			);
+			path = ScribeTests_iOS;
+			sourceTree = "<group>";
+		};
 		56177C732DA2E84500A2A2BB = {
 			isa = PBXGroup;
 			children = (
+				3251CD582E8A3AD3000C5E53 /* SwiftScribePlayground.playground */,
 				785079145B6CEF6E2D011C0E /* README.md */,
+				F0A1B2C23D4E4A0A9F112233 /* speaker-diarization-coreml */,
 				56177C7E2DA2E84500A2A2BB /* Scribe */,
+				0447C37FE5D34800ADF1D713 /* ScribeTests */,
+				3C1F9E7DAB564D8B8A8FE1C2 /* ScribeTests_iOS */,
 				56177C7D2DA2E84500A2A2BB /* Products */,
 				DAAE7046DB7565BCE8FFD913 /* Configuration */,
+				FAASRGRP00000000000001 /* FluidAudio-ASR */,
 			);
 			sourceTree = "<group>";
 		};
@@ -50,6 +175,9 @@
 			isa = PBXGroup;
 			children = (
 				56177C7C2DA2E84500A2A2BB /* SwiftScribe.app */,
+				C0F405AE0488422C8CEAC58F /* ScribeTests.xctest */,
+				6A3C7B2A1E8C4F0D9B7A3E2C /* ScribeTests_iOS.xctest */,
+				FAASRPROD00000000000001 /* libFluidAudio-ASR.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,6 +188,36 @@
 				ECC876D74CE254E1D1BC74C5 /* SampleCode.xcconfig */,
 			);
 			name = Configuration;
+			sourceTree = "<group>";
+		};
+		FAASRGRP00000000000001 /* FluidAudio-ASR */ = {
+			isa = PBXGroup;
+			children = (
+				FAASRFR00000000000000DU /* DownloadUtils.swift */,
+				FAASRFR0000000000000001 /* AudioConverter.swift */,
+				FAASRFR0000000000000002 /* MLModel+Prediction.swift */,
+				FAASRFR0000000000000010 /* AsrModels.swift */,
+				FAASRFR0000000000000011 /* ChunkProcessor.swift */,
+				FAASRFR0000000000000018 /* AsrManager.swift */,
+				FAASRFR000000000000001B /* AsrTranscription.swift */,
+				FAASRFR000000000000001D /* AsrTypes.swift */,
+				FAASRFR000000000000001E /* AudioBuffer.swift */,
+				FAASRFR000000000000001C /* MLArrayCache.swift */,
+				FAASRFR000000000000001F /* PerformanceMetrics.swift */,
+				FAASRFR0000000000000020 /* ANEOptimizer.swift */,
+				FAASRFR000000000000001A /* StreamingAsrManager.swift */,
+				FAASRFR0000000000000019 /* StreamingAsrSession.swift */,
+				FAASRFR0000000000000017 /* EncoderFrameView.swift */,
+				FAASRFR0000000000000013 /* TdtConfig.swift */,
+				FAASRFR0000000000000016 /* TdtDecoderV2.swift */,
+				FAASRFR0000000000000014 /* TdtDecoderState.swift */,
+				FAASRFR0000000000000012 /* TdtDecoderV3.swift */,
+				FAASRFR0000000000000015 /* TdtHypothesis.swift */,
+				FAASRSHR0000000000000001 /* AppLogger.swift */,
+				FAASRSHR0000000000000002 /* ASRConstants.swift */,
+				FAASRSHR0000000000000003 /* ANEMemoryUtils.swift */,
+			);
+			name = "FluidAudio-ASR";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -75,8 +233,6 @@
 			);
 			buildRules = (
 			);
-			dependencies = (
-			);
 			fileSystemSynchronizedGroups = (
 				56177C7E2DA2E84500A2A2BB /* Scribe */,
 			);
@@ -84,6 +240,54 @@
 			productName = SwiftTranscriptionSampleApp;
 			productReference = 56177C7C2DA2E84500A2A2BB /* SwiftScribe.app */;
 			productType = "com.apple.product-type.application";
+		};
+		AC05E6C100064DE48EE2B41D /* ScribeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D49BD9BD4A146E4A037894C /* Build configuration list for PBXNativeTarget "ScribeTests" */;
+			buildPhases = (
+				90D173AA56594EC3B8A28059 /* Sources */,
+				B77DCAF5CE60477BAD70F91A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2B1617D0DA5348EB83B763C9 /* PBXTargetDependency */,
+			);
+			name = ScribeTests;
+			productName = ScribeTests;
+			productReference = C0F405AE0488422C8CEAC58F /* ScribeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D1E2F3A4B5C6475890A1B2C3 /* ScribeTests_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EEDDCBBAA099887766554433 /* Build configuration list for PBXNativeTarget "ScribeTests_iOS" */;
+			buildPhases = (
+				7F2D1A3B5C6E47A8B9C0D1E2 /* Sources */,
+				5A6B7C8D9E0F1A2B3C4D5E6F /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3E3E3E3E3E3E3E3E3E3E3E3E /* PBXTargetDependency */,
+			);
+			name = ScribeTests_iOS;
+			productName = ScribeTests_iOS;
+			productReference = 6A3C7B2A1E8C4F0D9B7A3E2C /* ScribeTests_iOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FAASRTGT00000000000001 /* FluidAudio-ASR */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAASRCFG00000000000001 /* Build configuration list for PBXNativeTarget "FluidAudio-ASR" */;
+			buildPhases = (
+				FAASRSRC00000000000001 /* Sources */,
+				FAASRFRM00000000000001 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			name = "FluidAudio-ASR";
+			productName = FluidAudioASR;
+			productReference = FAASRPROD00000000000001 /* libFluidAudio-ASR.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
@@ -99,6 +303,14 @@
 					56177C7B2DA2E84500A2A2BB = {
 						CreatedOnToolsVersion = 17.0;
 					};
+					AC05E6C100064DE48EE2B41D = {
+						CreatedOnToolsVersion = 17.0;
+						TestTargetID = 56177C7B2DA2E84500A2A2BB;
+					};
+					D1E2F3A4B5C6475890A1B2C3 = {
+						CreatedOnToolsVersion = 17.0;
+						TestTargetID = 56177C7B2DA2E84500A2A2BB;
+					};
 				};
 			};
 			buildConfigurationList = 56177C772DA2E84500A2A2BB /* Build configuration list for PBXProject "SwiftScribe" */;
@@ -107,17 +319,20 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = 56177C732DA2E84500A2A2BB;
 			packageReferences = (
-				C70FF5062E276CF400B8B729 /* XCRemoteSwiftPackageReference "FluidAudio" */,
 			);
-			preferredProjectObjectVersion = 77;
+			preferredProjectObjectVersion = 90;
 			productRefGroup = 56177C7D2DA2E84500A2A2BB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				56177C7B2DA2E84500A2A2BB /* SwiftScribe */,
+				AC05E6C100064DE48EE2B41D /* ScribeTests */,
+				D1E2F3A4B5C6475890A1B2C3 /* ScribeTests_iOS */,
+				FAASRTGT00000000000001 /* FluidAudio-ASR */,
 			);
 		};
 /* End PBXProject section */
@@ -125,30 +340,100 @@
 /* Begin PBXResourcesBuildPhase section */
 		56177C7A2DA2E84500A2A2BB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
+				F0A1B2C33D4E4A0A9F112233 /* speaker-diarization-coreml in Resources */,
+				3251CD592E8A3AD3000C5E53 /* SwiftScribePlayground.playground in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		56177C782DA2E84500A2A2BB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7F2D1A3B5C6E47A8B9C0D1E2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				8A7B6C5D4E3F2A1B0C9D8E7F /* OfflineModelsVerification_iOS_Tests.swift in Sources */,
+			);
+		};
+		90D173AA56594EC3B8A28059 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				85F1A2EF3F00466BA9F9236D /* ScribeTests.swift in Sources */,
+				E1D7C5A63AB149B9A6FC0123 /* DiarizationManagerTests.swift in Sources */,
+				A6B28CFE94C54A85B1DA88C5 /* SwiftDataPersistenceTests.swift in Sources */,
+				D9FEE12C5BA844E0B8CC77AF /* MemoAIFlowTests.swift in Sources */,
+				ED12724879A845E7955E5FF9 /* RecordingFlowTests.swift in Sources */,
+				OFFVERMACBF0000000001 /* OfflineModelsVerificationTests.swift in Sources */,
+			);
+		};
+		FAASRSRC00000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				FAASRBF00000000000000DU /* DownloadUtils.swift in Sources */,
+				FAASRBF0000000000000016 /* AppLogger.swift in Sources */,
+				FAASRBF0000000000000015 /* ANEMemoryUtils.swift in Sources */,
+				FAASRBF0000000000000014 /* ASRConstants.swift in Sources */,
+				FAASRBF0000000000000001 /* AudioConverter.swift in Sources */,
+				FAASRBF0000000000000011 /* AudioBuffer.swift in Sources */,
+				FAASRBF0000000000000013 /* ANEOptimizer.swift in Sources */,
+				FAASRBF0000000000000003 /* AsrModels.swift in Sources */,
+				FAASRBF000000000000000B /* AsrManager.swift in Sources */,
+				FAASRBF000000000000000E /* AsrTranscription.swift in Sources */,
+				FAASRBF0000000000000010 /* AsrTypes.swift in Sources */,
+				FAASRBF0000000000000004 /* ChunkProcessor.swift in Sources */,
+				FAASRBF000000000000000A /* EncoderFrameView.swift in Sources */,
+				FAASRBF0000000000000002 /* MLModel+Prediction.swift in Sources */,
+				FAASRBF000000000000000F /* MLArrayCache.swift in Sources */,
+				FAASRBF0000000000000012 /* PerformanceMetrics.swift in Sources */,
+				FAASRBF000000000000000C /* StreamingAsrSession.swift in Sources */,
+				FAASRBF000000000000000D /* StreamingAsrManager.swift in Sources */,
+				FAASRBF0000000000000006 /* TdtConfig.swift in Sources */,
+				FAASRBF0000000000000007 /* TdtDecoderState.swift in Sources */,
+				FAASRBF0000000000000009 /* TdtDecoderV2.swift in Sources */,
+				FAASRBF0000000000000005 /* TdtDecoderV3.swift in Sources */,
+				FAASRBF0000000000000008 /* TdtHypothesis.swift in Sources */,
+			);
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		2B1617D0DA5348EB83B763C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 56177C7B2DA2E84500A2A2BB /* SwiftScribe */;
+			targetProxy = 8E911820234B41C4A0991AE7 /* PBXContainerItemProxy */;
+		};
+		3E3E3E3E3E3E3E3E3E3E3E3E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 56177C7B2DA2E84500A2A2BB /* SwiftScribe */;
+			targetProxy = 9F9F9F9F9F9F9F9F9F9F9F9F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3251CD582E8A3AD3000C5E53 /* SwiftScribePlayground.playground */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3251CD572E8A3AD3000C5E53 /* Base */,
+				3251CD5A2E8A3C3D000C5E53 /* pt-BR */,
+				3251CD5B2E8A3C44000C5E53 /* en */,
+			);
+			name = SwiftScribePlayground.playground;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
-		56177C9D2DA2E84700A2A2BB /* Debug */ = {
+		56177C9D2DA2E84700A2A2BB /* Debug configuration for PBXProject "SwiftScribe" */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ECC876D74CE254E1D1BC74C5 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -204,7 +489,9 @@
 				ONLY_ACTIVE_ARCH = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_UPCOMING_FEATURE_CONCISE_MAGIC_FILE = YES;
 				SWIFT_UPCOMING_FEATURE_DEPRECATE_APPLICATION_MAIN = YES;
 				SWIFT_UPCOMING_FEATURE_DISABLE_OUTWARD_ACTOR_ISOLATION = YES;
@@ -221,12 +508,13 @@
 			};
 			name = Debug;
 		};
-		56177C9E2DA2E84700A2A2BB /* Release */ = {
+		56177C9E2DA2E84700A2A2BB /* Release configuration for PBXProject "SwiftScribe" */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ECC876D74CE254E1D1BC74C5 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -275,6 +563,8 @@
 				MTL_FAST_MATH = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_UPCOMING_FEATURE_CONCISE_MAGIC_FILE = YES;
 				SWIFT_UPCOMING_FEATURE_DEPRECATE_APPLICATION_MAIN = YES;
 				SWIFT_UPCOMING_FEATURE_DISABLE_OUTWARD_ACTOR_ISOLATION = YES;
@@ -291,24 +581,25 @@
 			};
 			name = Release;
 		};
-		56177CA02DA2E84700A2A2BB /* Debug */ = {
+		56177CA02DA2E84700A2A2BB /* Debug configuration for PBXNativeTarget "SwiftScribe" */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ECC876D74CE254E1D1BC74C5 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CLANG_USE_OPTIMIZATION_PROFILE = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = 3N32CBY2V2;
+				DEVELOPMENT_TEAM = C3Y254HR6B;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
-				ENABLE_OUTGOING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = YES;
-				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = YES;
 				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
 				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
 				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
@@ -320,7 +611,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Swift Scribe";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Sccribe needs access to transcribe your microphone audio";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Swift Scribe needs access to transcribe your microphone audio";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -336,7 +627,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.swift.examples.scribe;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swif.scribe;
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.swift.examples.scribe.ios;
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = com.swift.examples.scribe.macos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -346,7 +637,9 @@
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_UPCOMING_FEATURE_EXISTENTIAL_ANY = YES;
 				SWIFT_UPCOMING_FEATURE_INFER_ISOLATED_CONFORMANCES = YES;
 				SWIFT_UPCOMING_FEATURE_INTERNAL_IMPORTS_BY_DEFAULT = YES;
@@ -357,25 +650,26 @@
 			};
 			name = Debug;
 		};
-		56177CA12DA2E84700A2A2BB /* Release */ = {
+		56177CA12DA2E84700A2A2BB /* Release configuration for PBXNativeTarget "SwiftScribe" */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ECC876D74CE254E1D1BC74C5 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = 3N32CBY2V2;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
-				ENABLE_OUTGOING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = YES;
-				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = YES;
 				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
 				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
 				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
@@ -387,7 +681,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Swift Scribe";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Sccribe needs access to transcribe your microphone audio";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Swift Scribe needs access to transcribe your microphone audio";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -403,7 +697,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.swift.examples.scribe;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swif.scribe;
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.swift.examples.scribe.ios;
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = com.swift.examples.scribe.macos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -411,9 +705,12 @@
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = macosx;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				STRIP_INSTALLED_PRODUCT = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_UPCOMING_FEATURE_EXISTENTIAL_ANY = YES;
 				SWIFT_UPCOMING_FEATURE_INFER_ISOLATED_CONFORMANCES = YES;
 				SWIFT_UPCOMING_FEATURE_INTERNAL_IMPORTS_BY_DEFAULT = YES;
@@ -424,47 +721,209 @@
 			};
 			name = Release;
 		};
+		7882ADE555B8462AB5A89103 /* Release configuration for PBXNativeTarget "ScribeTests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C3Y254HR6B;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					SwiftUI,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.swift.examples.scribe.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftScribe.app/Contents/MacOS/SwiftScribe";
+			};
+			name = Release;
+		};
+		E5C73E197EAE42CF8F21F08A /* Debug configuration for PBXNativeTarget "ScribeTests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C3Y254HR6B;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					SwiftUI,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.swift.examples.scribe.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftScribe.app/Contents/MacOS/SwiftScribe";
+			};
+			name = Debug;
+		};
+		EEDDCBBCCD00112233445566 /* Debug configuration for PBXNativeTarget "ScribeTests_iOS" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C3Y254HR6B;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swift.examples.scribe.tests.ios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphonesimulator;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftScribe.app/SwiftScribe";
+			};
+			name = Debug;
+		};
+		EEDDCBBCCD00112233445567 /* Release configuration for PBXNativeTarget "ScribeTests_iOS" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C3Y254HR6B;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swift.examples.scribe.tests.ios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphonesimulator;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftScribe.app/SwiftScribe";
+			};
+			name = Release;
+		};
+		FAASRCDBG00000000000001 /* Debug configuration for PBXNativeTarget "FluidAudio-ASR" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		FAASRCREL00000000000001 /* Release configuration for PBXNativeTarget "FluidAudio-ASR" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1D49BD9BD4A146E4A037894C /* Build configuration list for PBXNativeTarget "ScribeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5C73E197EAE42CF8F21F08A /* Debug configuration for PBXNativeTarget "ScribeTests" */,
+				7882ADE555B8462AB5A89103 /* Release configuration for PBXNativeTarget "ScribeTests" */,
+			);
+			defaultConfigurationName = Release;
+		};
 		56177C772DA2E84500A2A2BB /* Build configuration list for PBXProject "SwiftScribe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				56177C9D2DA2E84700A2A2BB /* Debug */,
-				56177C9E2DA2E84700A2A2BB /* Release */,
+				56177C9D2DA2E84700A2A2BB /* Debug configuration for PBXProject "SwiftScribe" */,
+				56177C9E2DA2E84700A2A2BB /* Release configuration for PBXProject "SwiftScribe" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		56177C9F2DA2E84700A2A2BB /* Build configuration list for PBXNativeTarget "SwiftScribe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				56177CA02DA2E84700A2A2BB /* Debug */,
-				56177CA12DA2E84700A2A2BB /* Release */,
+				56177CA02DA2E84700A2A2BB /* Debug configuration for PBXNativeTarget "SwiftScribe" */,
+				56177CA12DA2E84700A2A2BB /* Release configuration for PBXNativeTarget "SwiftScribe" */,
 			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EEDDCBBAA099887766554433 /* Build configuration list for PBXNativeTarget "ScribeTests_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEDDCBBCCD00112233445566 /* Debug configuration for PBXNativeTarget "ScribeTests_iOS" */,
+				EEDDCBBCCD00112233445567 /* Release configuration for PBXNativeTarget "ScribeTests_iOS" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		FAASRCFG00000000000001 /* Build configuration list for PBXNativeTarget "FluidAudio-ASR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAASRCDBG00000000000001 /* Debug configuration for PBXNativeTarget "FluidAudio-ASR" */,
+				FAASRCREL00000000000001 /* Release configuration for PBXNativeTarget "FluidAudio-ASR" */,
+			);
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		C70FF5062E276CF400B8B729 /* XCRemoteSwiftPackageReference "FluidAudio" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/FluidInference/FluidAudio/";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		C70FF5072E276CF400B8B729 /* FluidAudio */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C70FF5062E276CF400B8B729 /* XCRemoteSwiftPackageReference "FluidAudio" */;
-			productName = FluidAudio;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 56177C742DA2E84500A2A2BB /* Project object */;
 }

@@ -1,0 +1,281 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Performance baselines and SLOs for Swift Scribe regression testing",
+  "version": "1.0.0",
+  "lastUpdated": "2025-10-02",
+  "platform": "macOS 26.1 / iOS 26.1",
+  "device": "Apple M2, 8GB RAM",
+
+  "metrics": {
+    "transcription_first_word_latency_ms": {
+      "description": "Time from recording start to first word transcribed",
+      "unit": "milliseconds",
+      "p50": 800,
+      "p95": 1500,
+      "p99": 2000,
+      "slo": 2000,
+      "notes": "Includes model warmup time. Should be <1s after warmup."
+    },
+
+    "transcription_realtime_factor": {
+      "description": "Processing time vs audio duration ratio",
+      "unit": "ratio",
+      "p50": 0.3,
+      "p95": 0.5,
+      "p99": 0.8,
+      "slo": 1.0,
+      "notes": "1.0 means real-time. <1.0 is faster than real-time."
+    },
+
+    "diarization_window_10s_ms": {
+      "description": "Time to process 10s audio window for speaker diarization",
+      "unit": "milliseconds",
+      "p50": 50,
+      "p95": 100,
+      "p99": 150,
+      "slo": 200,
+      "notes": "CoreML inference time on ANE. Degrades to CPU if ANE unavailable."
+    },
+
+    "diarization_final_pass_per_minute_ms": {
+      "description": "Time to process 1 minute of audio in final diarization pass",
+      "unit": "milliseconds",
+      "p50": 500,
+      "p95": 1000,
+      "p99": 1500,
+      "slo": 2000,
+      "notes": "Full audio diarization after recording stops."
+    },
+
+    "speaker_embedding_generation_ms": {
+      "description": "Time to generate speaker embedding from 8s enrollment",
+      "unit": "milliseconds",
+      "p50": 300,
+      "p95": 600,
+      "p99": 800,
+      "slo": 1000,
+      "notes": "WeSpeaker v2 model inference time."
+    },
+
+    "ui_tap_response_ms": {
+      "description": "Time from tap event to UI update (button press)",
+      "unit": "milliseconds",
+      "p50": 16,
+      "p95": 32,
+      "p99": 50,
+      "slo": 100,
+      "notes": "Should maintain 60fps (16.67ms per frame)."
+    },
+
+    "ui_transcript_render_ms": {
+      "description": "Time to render 1000-word transcript with speaker colors",
+      "unit": "milliseconds",
+      "p50": 50,
+      "p95": 100,
+      "p99": 200,
+      "slo": 500,
+      "notes": "AttributedString rendering with complex formatting."
+    },
+
+    "memory_idle_mb": {
+      "description": "Memory footprint when app is idle (no recording)",
+      "unit": "megabytes",
+      "p50": 50,
+      "p95": 80,
+      "p99": 100,
+      "slo": 150,
+      "notes": "Base memory before audio processing."
+    },
+
+    "memory_recording_10min_mb": {
+      "description": "Memory footprint during 10-minute recording",
+      "unit": "megabytes",
+      "p50": 120,
+      "p95": 150,
+      "p99": 180,
+      "slo": 200,
+      "notes": "Includes audio buffers, transcription state, diarization."
+    },
+
+    "memory_recording_1hr_mb": {
+      "description": "Memory footprint during 1-hour recording",
+      "unit": "megabytes",
+      "p50": 150,
+      "p95": 200,
+      "p99": 250,
+      "slo": 300,
+      "notes": "Must show bounded growth - adaptive backpressure should prevent unbounded accumulation."
+    },
+
+    "memory_recording_4hr_mb": {
+      "description": "Memory footprint during 4-hour recording (stress test)",
+      "unit": "megabytes",
+      "p50": 180,
+      "p95": 250,
+      "p99": 300,
+      "slo": 400,
+      "notes": "Long-running stability test. Growth should plateau."
+    },
+
+    "disk_write_throughput_mbps": {
+      "description": "Audio file write throughput (16kHz mono Float32)",
+      "unit": "megabytes per second",
+      "p50": 10,
+      "p95": 5,
+      "p99": 3,
+      "slo": 1,
+      "notes": "Must exceed real-time audio rate (64KB/s for 16kHz mono)."
+    },
+
+    "swiftdata_write_latency_ms": {
+      "description": "Time to persist Memo with 1000-word transcript + 100 segments",
+      "unit": "milliseconds",
+      "p50": 50,
+      "p95": 100,
+      "p99": 200,
+      "slo": 500,
+      "notes": "SwiftData save() latency after recording stops."
+    },
+
+    "ai_summary_generation_per_1000_words_ms": {
+      "description": "Time to generate summary for 1000-word transcript (FoundationModels)",
+      "unit": "milliseconds",
+      "p50": 2000,
+      "p95": 4000,
+      "p99": 6000,
+      "slo": 10000,
+      "notes": "On-device AI generation. Highly variable based on model load."
+    },
+
+    "build_time_macos_clean_s": {
+      "description": "Clean build time for macOS target (xcodebuild)",
+      "unit": "seconds",
+      "p50": 45,
+      "p95": 60,
+      "p99": 75,
+      "slo": 120,
+      "notes": "Full rebuild. Incremental builds should be <10s."
+    },
+
+    "build_time_ios_clean_s": {
+      "description": "Clean build time for iOS Simulator target",
+      "unit": "seconds",
+      "p50": 50,
+      "p95": 65,
+      "p99": 80,
+      "slo": 120,
+      "notes": "Full rebuild for iPhone 17 Pro simulator."
+    },
+
+    "test_suite_duration_s": {
+      "description": "Total time to run all 18 unit tests",
+      "unit": "seconds",
+      "p50": 1.2,
+      "p95": 1.6,
+      "p99": 2.0,
+      "slo": 5.0,
+      "notes": "Fast feedback for CI. Target <2s."
+    },
+
+    "app_launch_time_cold_ms": {
+      "description": "Time from launch to first frame (cold start)",
+      "unit": "milliseconds",
+      "p50": 800,
+      "p95": 1200,
+      "p99": 1500,
+      "slo": 2000,
+      "notes": "Includes SwiftData setup, model warmup."
+    },
+
+    "app_launch_time_warm_ms": {
+      "description": "Time from launch to first frame (warm start, models cached)",
+      "unit": "milliseconds",
+      "p50": 200,
+      "p95": 400,
+      "p99": 600,
+      "slo": 1000,
+      "notes": "Models already in memory."
+    }
+  },
+
+  "quality_metrics": {
+    "transcription_wer_clean_audio": {
+      "description": "Word Error Rate for clean speech samples",
+      "unit": "percentage",
+      "p50": 2.0,
+      "p95": 5.0,
+      "p99": 8.0,
+      "slo": 10.0,
+      "notes": "Apple Speech framework accuracy on clear audio."
+    },
+
+    "transcription_wer_noisy_audio": {
+      "description": "Word Error Rate for noisy speech (SNR 10dB)",
+      "unit": "percentage",
+      "p50": 8.0,
+      "p95": 15.0,
+      "p99": 20.0,
+      "slo": 25.0,
+      "notes": "Degrades with noise. Acceptable up to 25%."
+    },
+
+    "diarization_der_two_speakers": {
+      "description": "Diarization Error Rate for two speakers (clean turn-taking)",
+      "unit": "percentage",
+      "p50": 5.0,
+      "p95": 12.0,
+      "p99": 18.0,
+      "slo": 20.0,
+      "notes": "FluidAudio optimal is 17.7% DER."
+    },
+
+    "diarization_der_overlap": {
+      "description": "Diarization Error Rate for overlapping speech",
+      "unit": "percentage",
+      "p50": 20.0,
+      "p95": 30.0,
+      "p99": 40.0,
+      "slo": 50.0,
+      "notes": "Overlapping speech is challenging. Up to 50% acceptable."
+    },
+
+    "speaker_verification_accuracy": {
+      "description": "True positive rate for speaker verification (threshold 0.8)",
+      "unit": "percentage",
+      "p50": 92.0,
+      "p95": 85.0,
+      "p99": 80.0,
+      "slo": 75.0,
+      "notes": "Cosine similarity matching against enrolled speakers."
+    }
+  },
+
+  "regression_thresholds": {
+    "description": "Fail test if metric exceeds baseline by these margins",
+    "latency_regression_percent": 20,
+    "memory_regression_percent": 15,
+    "quality_regression_percent": 10,
+    "notes": "Example: If p95 latency baseline is 100ms, fail if >120ms (20% regression)."
+  },
+
+  "test_configurations": {
+    "short_test": {
+      "description": "Quick smoke test configuration",
+      "audio_duration_s": 10,
+      "iterations": 1,
+      "target_duration_s": 30
+    },
+    "medium_test": {
+      "description": "Standard integration test",
+      "audio_duration_s": 60,
+      "iterations": 3,
+      "target_duration_s": 300
+    },
+    "long_test": {
+      "description": "Stress test for stability",
+      "audio_duration_s": 240,
+      "iterations": 5,
+      "target_duration_s": 1800
+    }
+  }
+}

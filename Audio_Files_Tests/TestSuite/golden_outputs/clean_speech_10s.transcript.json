@@ -1,0 +1,38 @@
+{
+  "audioFile": "clean_speech_10s.wav",
+  "checksum": "4b23d140e5df6b10d8dbacf774902521915c5fac7bc5f818a04337fee6a53758",
+  "notes": "Baseline transcription quality test - should achieve >95% confidence",
+  "text": "Synthetic clean speech audio sample for baseline testing",
+  "words": [
+    {
+      "confidence": 0.95,
+      "endTime": 0.5,
+      "startTime": 0,
+      "word": "Synthetic"
+    },
+    {
+      "confidence": 0.96,
+      "endTime": 0.8,
+      "startTime": 0.5,
+      "word": "clean"
+    },
+    {
+      "confidence": 0.94,
+      "endTime": 1.2,
+      "startTime": 0.8,
+      "word": "speech"
+    },
+    {
+      "confidence": 0.95,
+      "endTime": 1.6,
+      "startTime": 1.2,
+      "word": "audio"
+    },
+    {
+      "confidence": 0.93,
+      "endTime": 2,
+      "startTime": 1.6,
+      "word": "sample"
+    }
+  ]
+}

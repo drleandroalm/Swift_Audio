@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  macos-tests:
+    name: macOS Unit Tests (ARM64)
+    runs-on: macos-14
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest
+
+      - name: Run macOS unit tests (arm64)
+        run: |
+          xcodebuild -scheme SwiftScribe -destination 'platform=macOS,arch=arm64' test | xcpretty || exit 1
+
+  ios-verify-models:
+    name: iOS Model Verification (Simulator)
+    runs-on: macos-14
+    needs: macos-tests
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest
+
+      - name: Verify bundled models (macOS + iOS) and run iOS bundling test
+        run: |
+          bash Scripts/verify_bundled_models.sh
+
+  cli-smoke:
+    name: CLI Smoke (Deterministic)
+    runs-on: macos-14
+    needs: macos-tests
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest
+
+      - name: Run RecorderSmokeCLI on reference WAV
+        run: |
+          set -euo pipefail
+          xcrun swift --version
+          test -f Audio_Files_Tests/Audio_One_Speaker_Test.wav
+          Scripts/RecorderSmokeCLI/run_cli.sh Audio_Files_Tests/Audio_One_Speaker_Test.wav | tee /tmp/cli_smoke.log
+          # Basic sanity: ensure at least one volatile or final line appeared
+          if ! (grep -q "\[CLI\]\[volatile\]" /tmp/cli_smoke.log || grep -q "\[CLI\]\[final\]" /tmp/cli_smoke.log); then
+            echo "No CLI transcript lines observed" >&2
+            exit 2
+          fi

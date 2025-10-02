@@ -1,5 +1,10 @@
+Atualização Swift Scribe (julho/2025)
+- O app passou a usar prompts em português brasileiro para títulos e resumos, garantindo consistência com a UI localizada.
+- As sessões padrão agora são criadas pelo `DefaultMemoAIContentGenerator`, que aplica instruções focadas em memorandos de voz e retorna `AttributedString` com Markdown.
+- Títulos e resumos gerados automaticamente têm fallback local caso o modelo esteja indisponível, preservando a experiência offline.
+
 Hi, I’m Louis.
- Today we’ll look at getting the most out of the Foundation Models framework.
+Today we’ll look at getting the most out of the Foundation Models framework.
 As you may know, the Foundation Models framework gives you direct access to an on-device Large Language Model, with a convenient Swift API.
  It’s available on macOS, iPadOS, iOS, and visionOS.
  And because it runs on-device, using it in your project is just a simple import away.

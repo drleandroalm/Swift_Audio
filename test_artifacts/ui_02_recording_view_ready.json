@@ -1,0 +1,26 @@
+{
+  "description": "Recording view - ready to start recording",
+  "key_elements": {
+    "start_recording_button": {
+      "label": "Iniciar gravação",
+      "frame": {"x": 104.33, "y": 757.66, "width": 193.33, "height": 50.33},
+      "center": {"x": 201, "y": 783},
+      "type": "Button",
+      "enabled": true
+    },
+    "timer": {
+      "label": "00:00",
+      "frame": {"x": 151.5, "y": 336, "width": 99, "height": 38.33},
+      "type": "StaticText"
+    },
+    "status": {
+      "label": "Ouvindo...",
+      "frame": {"x": 151.33, "y": 394.33, "width": 99.33, "height": 26.33},
+      "type": "StaticText"
+    },
+    "instruction": {
+      "label": "Comece a falar no microfone",
+      "type": "StaticText"
+    }
+  }
+}

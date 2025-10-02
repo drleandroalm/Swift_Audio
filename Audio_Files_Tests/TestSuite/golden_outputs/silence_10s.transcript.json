@@ -1,0 +1,7 @@
+{
+  "audioFile": "silence_10s.wav",
+  "checksum": "ca635f132b4201f070bec19619d229b040a5b4cb62dcdccbf745cf5bc9e8f082",
+  "notes": "No audio detection test - should return empty transcript gracefully",
+  "text": "",
+  "words": []
+}

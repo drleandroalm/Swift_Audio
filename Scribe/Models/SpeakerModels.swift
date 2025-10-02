@@ -17,7 +17,7 @@ class Speaker {
     var colorGreen: Double
     var colorBlue: Double
     var createdAt: Date
-    var embedding: [Float]?
+    var embeddingData: Data?
     
     // Computed property for SwiftUI Color
     var displayColor: Color {
@@ -50,7 +50,11 @@ class Speaker {
         self.id = id
         self.name = name
         self.createdAt = Date()
-        self.embedding = embedding
+        if let embedding {
+            self.embeddingData = FloatArrayCodec.encode(embedding)
+        } else {
+            self.embeddingData = nil
+        }
         
         // Initialize color components using platform-specific methods
         #if os(iOS)
@@ -72,6 +76,11 @@ class Speaker {
         #endif
     }
     
+    var embedding: [Float]? {
+        get { embeddingData.flatMap(FloatArrayCodec.decode) }
+        set { embeddingData = newValue.flatMap(FloatArrayCodec.encode) }
+    }
+    
     // Generate a unique color for a new speaker
     static func generateSpeakerColor(for speakerIndex: Int) -> Color {
         let colors: [Color] = [
@@ -91,7 +100,7 @@ class SpeakerSegment {
     var endTime: TimeInterval
     var text: String
     var confidence: Float
-    var embedding: [Float]?
+    var embeddingData: Data?
     
     // Relationship to the memo this segment belongs to
     var memo: Memo?
@@ -115,7 +124,16 @@ class SpeakerSegment {
         self.endTime = endTime
         self.text = text
         self.confidence = confidence
-        self.embedding = embedding
+        if let embedding {
+            self.embeddingData = FloatArrayCodec.encode(embedding)
+        } else {
+            self.embeddingData = nil
+        }
+    }
+    
+    var embedding: [Float]? {
+        get { embeddingData.flatMap(FloatArrayCodec.decode) }
+        set { embeddingData = newValue.flatMap(FloatArrayCodec.encode) }
     }
 }
 
@@ -167,7 +185,7 @@ extension Speaker {
         let speakerCount = (try? context.fetch(FetchDescriptor<Speaker>()).count) ?? 0
         let newSpeaker = Speaker(
             id: id,
-            name: "Speaker \(speakerCount + 1)",
+            name: "Falante \(speakerCount + 1)",
             displayColor: Speaker.generateSpeakerColor(for: speakerCount)
         )
         

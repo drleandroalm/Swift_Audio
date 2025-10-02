@@ -1,0 +1,71 @@
+[
+  {
+    "AXFrame" : "{{0, 0}, {402, 874}}",
+    "AXUniqueId" : null,
+    "frame" : {
+      "y" : 0,
+      "x" : 0,
+      "width" : 402,
+      "height" : 874
+    },
+    "role_description" : "application",
+    "AXLabel" : "Swift Scribe",
+    "content_required" : false,
+    "type" : "Application",
+    "title" : null,
+    "help" : null,
+    "custom_actions" : [],
+    "AXValue" : null,
+    "enabled" : true,
+    "role" : "AXApplication",
+    "children" : [
+      {
+        "AXFrame" : "{{346, 66}, {36, 36}}",
+        "frame" : {
+          "y" : 66,
+          "x" : 346,
+          "width" : 36,
+          "height" : 36
+        },
+        "role_description" : "button",
+        "AXLabel" : "Configurações",
+        "type" : "Button",
+        "enabled" : true,
+        "role" : "AXButton",
+        "pid" : 94828
+      },
+      {
+        "AXFrame" : "{{15.999999999999986, 119.66666666666667}, {208.33333333333331, 40.666666666666671}}",
+        "frame" : {
+          "y" : 119.66666666666667,
+          "x" : 15.999999999999986,
+          "width" : 208.33333333333331,
+          "height" : 40.666666666666671
+        },
+        "role_description" : "heading",
+        "AXLabel" : "Memorandos",
+        "type" : "Heading",
+        "enabled" : true,
+        "role" : "AXHeading",
+        "pid" : 94828
+      },
+      {
+        "AXFrame" : "{{146.66666666666666, 765.66666666666663}, {109, 50.333333333333371}}",
+        "frame" : {
+          "y" : 765.66666666666663,
+          "x" : 146.66666666666666,
+          "width" : 109,
+          "height" : 50.333333333333371
+        },
+        "role_description" : "button",
+        "AXLabel" : "Novo",
+        "type" : "Button",
+        "enabled" : true,
+        "role" : "AXButton",
+        "pid" : 94828
+      }
+    ],
+    "subrole" : null,
+    "pid" : 94828
+  }
+]

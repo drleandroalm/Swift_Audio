@@ -1,0 +1,57 @@
+{
+  "description": "Finished memo view after 24s recording",
+  "recording_duration": "00:24",
+  "key_elements": {
+    "back_button": {
+      "label": "Memorandos",
+      "frame": {"x": 16, "y": 62, "width": 44, "height": 44},
+      "type": "Button"
+    },
+    "title": {
+      "label": "Novo Memorando",
+      "type": "StaticText"
+    },
+    "date": {
+      "label": "2 Oct 2025",
+      "type": "StaticText"
+    },
+    "play_button": {
+      "label": "Reproduzir",
+      "frame": {"x": 247.66, "y": 124, "width": 130.33, "height": 34.33},
+      "center": {"x": 313, "y": 141},
+      "type": "Button",
+      "enabled": true
+    },
+    "tabs": {
+      "transcricao": "Transcrição",
+      "resumo": "Resumo",
+      "falantes": "Falantes"
+    },
+    "action_buttons": {
+      "copy": {"label": "Copiar", "enabled": true},
+      "clear": {"label": "Limpar", "enabled": false},
+      "summarize": {"label": "Resumir", "enabled": false}
+    },
+    "audio_slider": {
+      "start_time": "00:00",
+      "end_time": "00:24",
+      "frame": {"x": 45, "y": 653, "width": 240, "height": 31},
+      "value": 0
+    },
+    "speakers_button": {
+      "label": "Falantes",
+      "frame": {"x": 36, "y": 746, "width": 141.33, "height": 50.66},
+      "enabled": true
+    },
+    "ai_summary_button": {
+      "label": "Resumir com IA",
+      "enabled": false
+    }
+  },
+  "observations": {
+    "transcript_empty": "No transcript visible - expected because simulator has no microphone input",
+    "speech_limitation": "Speech framework receives silence in simulator without audio playback",
+    "ui_transition": "Successfully transitioned from recording to finished memo view",
+    "recording_saved": "24-second audio file created and playback controls available"
+  }
+}

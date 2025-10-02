@@ -1,3 +1,8 @@
+Atualização Swift Scribe (julho/2025)
+- O gerenciador de diarização busca primeiro modelos Core ML locais em `speaker-diarization-coreml/` e aceita caminhos personalizados via `FLUID_AUDIO_MODELS_PATH`.
+- Os parâmetros expostos ao usuário (limite de clusterização, duração mínima, número máximo de falantes e processamento em tempo real) são aplicados imediatamente ao `DiarizationManager` durante a captura.
+- Logs críticos e mensagens internas foram traduzidos para pt-BR para facilitar diagnóstico em campo.
+
 Hello! My name is Steve Nimick.
  I’m an audio software engineer working on spatial audio technologies.
  In this video, I’ll talk about how to enhance the audio capabilities of your app.

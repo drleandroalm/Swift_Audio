@@ -10,17 +10,26 @@ class BufferConverter {
     }
 
     private var converter: AVAudioConverter?
+    private var lastInFormat: AVAudioFormat?
+    private var lastOutFormat: AVAudioFormat?
     func convertBuffer(_ buffer: AVAudioPCMBuffer, to format: AVAudioFormat) throws
         -> AVAudioPCMBuffer
     {
+        // Skip work if there's nothing to convert
+        if buffer.frameLength == 0 {
+            return buffer
+        }
+
         let inputFormat = buffer.format
         guard inputFormat != format else {
             return buffer
         }
 
-        if converter == nil || converter?.outputFormat != format {
+        if converter == nil || lastOutFormat != format || lastInFormat != inputFormat {
             converter = AVAudioConverter(from: inputFormat, to: format)
             converter?.primeMethod = .none  // Sacrifice quality of first samples in order to avoid any timestamp drift from source
+            lastInFormat = inputFormat
+            lastOutFormat = format
         }
 
         guard let converter else {

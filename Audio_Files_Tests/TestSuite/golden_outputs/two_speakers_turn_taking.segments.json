@@ -1,0 +1,21 @@
+{
+  "audioFile": "two_speakers_turn_taking.wav",
+  "checksum": "08b7a8499490fa3076ec641f6a37ccd82999d5ee890da6804a9e1d7452808b3b",
+  "der": 0.05,
+  "notes": "Baseline diarization test - clean speaker transitions without overlap",
+  "segments": [
+    {
+      "confidence": 0.92,
+      "endTime": 15,
+      "speakerId": "speaker_0",
+      "startTime": 0
+    },
+    {
+      "confidence": 0.91,
+      "endTime": 30,
+      "speakerId": "speaker_1",
+      "startTime": 15
+    }
+  ],
+  "speakerCount": 2
+}

@@ -1,3 +1,7 @@
+Atualização Swift Scribe (julho/2025)
+- O painel de Configurações do app foi migrado para SwiftUI com seções "Geral", "Aparência" e "Sobre", respeitando o novo material Liquid Glass.
+- Novos controles permitem ajustar a diarização (limite, duração mínima, quantidade máxima de falantes) e alternar processamento em tempo real, todos localizados em pt-BR.
+
 Hi.
  I'm Franck, an engineer on the SwiftUI team.
  And in this video, you will learn how to build a great app with the new design.

@@ -6,41 +6,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Swift Scribe is an AI-powered speech-to-text transcription application built exclusively for iOS 26/macOS 26+ using Apple's latest frameworks. It provides real-time voice transcription, on-device AI processing, speaker diarization, and intelligent note-taking with complete privacy protection.
 
-## Essential Development Commands
-
-### Standard Xcode Project Commands
-
-**Building and Running:**
-```bash
-# Open project in Xcode
-open SwiftScribe.xcodeproj
-
-# Build from command line (requires Xcode)
-xcodebuild -project SwiftScribe.xcodeproj -scheme SwiftScribe -destination 'platform=iOS Simulator,name=iPhone 15 Pro' build
-
-# Build for macOS
-xcodebuild -project SwiftScribe.xcodeproj -scheme SwiftScribe -destination 'platform=macOS' build
-
-# Clean build folder
-xcodebuild clean -project SwiftScribe.xcodeproj -scheme SwiftScribe
-```
-
-**Testing:**
-```bash
-# Run tests from command line
-xcodebuild test -project SwiftScribe.xcodeproj -scheme SwiftScribe -destination 'platform=iOS Simulator,name=iPhone 15 Pro'
-
-# Run tests for macOS
-xcodebuild test -project SwiftScribe.xcodeproj -scheme SwiftScribe -destination 'platform=macOS'
-```
-
-**Swift Package Manager Integration:**
-```bash
-# Reset Swift Package Manager cache if dependencies have issues
-rm -rf SwiftScribe.xcodeproj/project.xcworkspace/xcshareddata/swiftpm
-# Then rebuild in Xcode to re-resolve packages
-```
-
 ## Critical System Requirements
 
 **IMPORTANT**: This project requires bleeding-edge Apple platforms:
@@ -49,174 +14,410 @@ rm -rf SwiftScribe.xcodeproj/project.xcworkspace/xcshareddata/swiftpm
 - **Xcode Beta** with Swift 6.2+ toolchain
 - **Apple Developer Account** with beta access
 
+## Essential Development Commands
+
+### Building
+```bash
+# macOS (ARM64)
+xcodebuild -scheme SwiftScribe -destination 'platform=macOS,arch=arm64' build
+
+# iOS Simulator
+xcodebuild -scheme SwiftScribe -destination 'platform=iOS Simulator,name=iPhone 16 Pro' build
+
+# Clean build
+xcodebuild clean -project SwiftScribe.xcodeproj -scheme SwiftScribe
+```
+
+### Testing
+```bash
+# macOS tests (18 tests, ~1.6s runtime)
+xcodebuild -scheme SwiftScribe -destination 'platform=macOS,arch=arm64' test
+
+# iOS Simulator tests
+xcodebuild -scheme SwiftScribe-iOS-Tests -destination 'platform=iOS Simulator,name=iPhone 16 Pro' test
+
+# CLI smoke test (deterministic, avoids XCTest finalize issues)
+Scripts/RecorderSmokeCLI/run_cli.sh Audio_Files_Tests/Audio_One_Speaker_Test.wav
+
+# Verify bundled models (CI verification)
+Scripts/verify_bundled_models.sh
+```
+
+### Debugging & Development Tools
+```bash
+# Capture 80s of logs with audio markers
+Scripts/capture_80s_markers.sh
+
+# Auto-record mode (Debug only)
+SS_AUTO_RECORD=1 open -a SwiftScribe.app
+
+# URL trigger (requires setting enabled)
+open 'swiftscribe://record'
+```
+
 ## High-Level Architecture
 
-### Core Application Structure
+### Core Component Flow
 
-**SwiftUI + SwiftData + Modern Concurrency Architecture:**
-- Built entirely with SwiftUI for cross-platform UI
-- SwiftData for object persistence (Core Data successor)
-- Async/await and actors for concurrent operations
-- Observable pattern using Swift 5.9+ `@Observable` macro
+The application uses a **three-pipeline architecture** where audio processing, speech recognition, and speaker identification run concurrently:
 
-### Key Components Hierarchy
-
-1. **App Layer** (`ScribeApp.swift`)
-   - Main app entry point with SwiftData model container setup
-   - Configures shared model context for memo persistence
-
-2. **View Layer** (`Views/`)
-   - `ContentView.swift`: Navigation split view (memo list + transcript detail)
-   - `TranscriptView.swift`: Core recording interface with live transcription
-   - `SettingsView.swift`: App configuration and preferences
-   - Conditional compilation for iOS vs macOS UI differences
-
-3. **Model Layer** (`Models/`)
-   - `MemoModel.swift`: Core `Memo` class with SwiftData persistence, AI enhancement, and speaker attribution
-   - `SpeakerModels.swift`: `Speaker` and `SpeakerSegment` models for diarization
-   - `AppSettings.swift`: Observable settings for themes and diarization preferences
-
-4. **Audio Processing** (`Audio/`)
-   - `Recorder.swift`: Dual `AVAudioEngine` architecture (recording + playback engines)
-   - `DiarizationManager.swift`: FluidAudio integration for real-time speaker identification
-
-5. **Speech & AI** (`Transcription/` + `Helpers/`)
-   - `Transcription.swift`: Apple Speech framework with async stream processing
-   - `FoundationModelsHelper.swift`: On-device AI text generation using Apple's FoundationModels
-
-### Apple Framework Dependencies
-
-**Core Frameworks:**
-- **SwiftUI**: Modern declarative UI framework
-- **SwiftData**: Object persistence with `@Model` classes
-- **Speech**: Real-time speech recognition with streaming
-- **AVFoundation**: Audio recording, playback, and processing
-- **FoundationModels**: On-device AI text generation (iOS 18+/macOS 15+)
-
-**External Dependencies:**
-- **FluidAudio**: Speaker diarization library for advanced speaker separation
-  - Repository: `https://github.com/FluidInference/FluidAudio/`
-  - Provides `DiarizerManager`, `DiarizationResult`, `TimedSpeakerSegment`
-
-### Advanced Technical Features
-
-1. **Dual Audio Engine Architecture**
-   - Separate `AVAudioEngine` instances for recording and playback
-   - Prevents conflicts and allows simultaneous recording/playback
-   - Real-time audio processing with buffer management
-
-2. **Rich Attribution System**
-   - Custom `AttributedString` extensions for speaker identification
-   - Color-coded text based on speaker identification
-   - Confidence scoring and metadata embedding
-   - Timeline-based character position mapping
-
-3. **Real-Time Processing Pipeline**
-   - Streaming transcription with live text updates
-   - Optional concurrent speaker diarization
-   - On-device AI enhancement for summaries and titles
-   - Async actors for thread-safe audio processing
-
-4. **Cross-Platform Considerations**
-   - Conditional compilation using `#if os(iOS)` and `#if os(macOS)`
-   - Platform-specific UI adaptations (navigation styles, toolbars)
-   - Shared business logic with platform-specific presentation
-
-## Development Guidelines
-
-### Code Patterns and Conventions
-
-**SwiftUI Observable Pattern:**
-```swift
-// Use @Observable classes for state management
-@Observable
-class AppSettings {
-    var isDiarizationEnabled: Bool = false
-    var selectedTheme: Theme = .automatic
-}
-
-// Inject via environment
-.environment(settings)
+```
+Microphone Input
+    ↓
+AVAudioEngine (dual-engine: recording + playback)
+    ↓
+Buffer Conversion (native format → 16kHz mono Float32)
+    ↓
+    ├─→ SpeechTranscriber (Apple Speech framework)
+    ├─→ DiarizationManager (FluidAudio speaker separation)
+    └─→ AVAudioFile (disk storage)
+    ↓
+SwiftData Persistence (Memo, Speaker, SpeakerSegment)
+    ↓
+SwiftUI (real-time updates via @Observable/@Published)
 ```
 
-**SwiftData Model Pattern:**
-```swift
-// Use @Model for persistent objects
-@Model
-final class Memo {
-    var title: String
-    var text: AttributedString
-    @Transient var diarizationResult: DiarizationResult?
-    
-    // Relationships
-    var speakerSegments: [SpeakerSegment] = []
-}
+### Dual Audio Engine Pattern
+
+**Critical Design**: Two separate `AVAudioEngine` instances prevent conflicts:
+- `recordingEngine`: Captures microphone input
+- `playbackEngine`: Handles audio file playback
+
+This enables simultaneous recording and playback without audio routing conflicts. Located in `Scribe/Audio/Recorder.swift`.
+
+### Audio Processing Pipeline (Three-Stage Conversion)
+
+**Stage 1 - Tap Installation** (`Recorder.swift:409-440`):
+- Install tap at device **native format** (48kHz stereo Bluetooth, 44.1kHz USB, etc.)
+- Dynamic buffer sizing: 4096 frames for Bluetooth, 2048 for others
+- Disables voice processing to avoid CoreAudio HAL errors
+
+**Stage 2 - Format Conversion** (`Recorder.swift:462-504`, `BufferConversion.swift`):
+- Convert to `SpeechAnalyzer.bestAvailableAudioFormat()` (typically 16kHz mono Float32)
+- Uses cached `AVAudioConverter` with `.none` primeMethod (prevents timestamp drift)
+- Single conversion point to avoid double-conversion errors
+
+**Stage 3 - ML Consumer Distribution**:
+- **Transcription**: `SpokenWordTranscriber` streams via `AsyncStream<AnalyzerInput>`
+- **Diarization**: `DiarizationManager` converts to `[Float]` arrays for CoreML
+- **Storage**: Original buffers written to WAV file
+
+### SwiftData Persistence Strategy
+
+**Entity Relationship Diagram**:
+```
+Memo (1) ─────< (M) SpeakerSegment (M) >───── (1) Speaker
+  │                    │
+  │                    └─ embedding: Data (FloatArrayCodec)
+  │                    └─ startTime, endTime, confidence
+  │
+  ├─ text: AttributedString (with audioTimeRange)
+  ├─ summary: AttributedString? (AI-generated)
+  ├─ url: URL? (audio file)
+  └─ @Transient diarizationResult: DiarizationResult?
 ```
 
-**Async/Await Audio Processing:**
+**Key Implementation**: `SpeakerSegment` entities store precise timing + embeddings, enabling:
+- Token-level speaker attribution via `audioTimeRange` matching
+- Per-speaker analytics (duration, turn counts, percentages)
+- Timeline visualization with color-coded segments
+- Cross-session speaker persistence
+
+### Real-Time vs Batch Diarization
+
+**Two-Phase Processing** (`DiarizationManager.swift`):
+
+1. **Live Mode** (optional, `enableRealTimeProcessing=true`):
+   - Processes audio windows (default 3s, adaptive 1-6s)
+   - Runs off-main via `InferenceExecutor.shared.run`
+   - Posts `resultNotification` for incremental UI updates
+   - Adaptive backpressure: drops oldest samples when buffer exceeds limit
+
+2. **Final Pass** (always runs):
+   - Processes entire `fullAudio` buffer at recording stop
+   - Guarantees comprehensive attribution (no windowing artifacts)
+   - Returns complete `DiarizationResult` with all segments
+
+### Speaker Attribution via AttributedString
+
+**Token-Time Alignment** (`Recorder.swift:763-785`, `MemoModel.swift:203-214`):
 ```swift
-// Use structured concurrency for audio operations
-Task {
-    for await transcription in transcriptionStream {
-        await MainActor.run {
-            // Update UI on main thread
-        }
+// Iterate through attributed runs with audio timing
+memo.text.runs.forEach { run in
+    let audioTimeRange = memo.text[run.range].audioTimeRange
+    let mid = (audioTimeRange.start.seconds + audioTimeRange.end.seconds) * 0.5
+
+    // Find overlapping diarization segment
+    if let segment = segments.first(where: { mid >= $0.startTime && mid < $0.endTime }) {
+        // Apply speaker color + metadata
+        attributed[run.range].foregroundColor = speaker.displayColor
+        attributed[run.range][.speakerIDKey] = segment.speakerId
     }
 }
 ```
 
-### Important Implementation Notes
+**Key Insight**: Uses run **midpoint** rather than range overlap to handle boundary cases cleanly.
 
-1. **AttributedString Usage**: The app heavily uses `AttributedString` for rich text with speaker attribution. Custom attribute keys are defined for speaker metadata.
+## Critical Integration Points
 
-2. **Speaker Diarization Integration**: Optional FluidAudio integration provides real-time speaker identification. Results are stored as separate `SpeakerSegment` entities linked to memos.
+### 1. FluidAudio Vendoring (Offline-Only)
 
-3. **AI Enhancement**: Uses Apple's FoundationModels for on-device text generation. Never sends data to external servers - completely privacy-focused.
+**Location**: `Scribe/Audio/FluidAudio/` (diarization only, ASR excluded)
 
-4. **Cross-Platform UI**: Careful use of conditional compilation for iOS vs macOS differences while maintaining shared business logic.
+**Model Resolution Order** (`DiarizationManager.swift:161-215`):
+1. `FLUID_AUDIO_MODELS_PATH` environment variable override
+2. App bundle resource: `Bundle.main.resourceURL/speaker-diarization-coreml/`
+3. Repository checkout: `./speaker-diarization-coreml/`
+4. **No remote fallback** - throws clear error if models missing
 
-5. **Audio Permissions**: Requires microphone permissions and speech recognition authorization. Handle permission states gracefully.
+**Required Models**:
+- `pyannote_segmentation.mlmodelc` - Speech activity segmentation
+- `wespeaker_v2.mlmodelc` - Speaker embeddings (256-dim)
 
-### Testing Considerations
+**Symbol Collision Resolution**: FluidAudio's `Speaker` renamed to `FASpeaker` to avoid conflict with SwiftData `Speaker` model.
 
-- Test on actual devices for speech recognition accuracy
-- Mock FluidAudio dependency for unit tests since it requires audio input
-- Test speaker diarization accuracy with multiple voice samples
-- Verify AttributedString serialization with SwiftData persistence
-- Test cross-platform UI on both iOS simulator and macOS
+### 2. Audio Format Handshake
 
-### Common Development Tasks
+**Challenge**: Avoid double conversion and format mismatches between recording and transcription.
 
-**Adding New AI Features:**
-1. Extend `FoundationModelsHelper.swift` with new generation methods
+**Solution** (`Recorder.swift:159-160`, `Transcription.swift:106-125`):
+```swift
+// Cache analyzer's preferred format during setup (avoids @MainActor conflicts)
+self.preferredStreamFormat = await MainActor.run {
+    (transcriber as? SpokenWordTranscriber)?.analyzerFormat
+}
+
+// Use cached format for conversion
+converterTo16k = AVAudioConverter(from: inputFormat, to: preferredStreamFormat!)
+```
+
+**Result**: Single conversion path directly to Speech framework requirements.
+
+### 3. Cross-Session Speaker Persistence
+
+**Flow** (`DiarizationManager.swift:388-410`):
+```swift
+// Before recording starts
+func loadKnownSpeakers(from context: ModelContext) async {
+    let speakers = try? context.fetch(FetchDescriptor<Speaker>())
+    for speaker in speakers where speaker.embedding != nil {
+        diarizer.upsertRuntimeSpeaker(
+            id: speaker.id,
+            embedding: speaker.embedding,
+            duration: 0
+        )
+    }
+}
+```
+
+**Benefit**: New recordings automatically match against known speakers via cosine distance comparison (threshold 0.65).
+
+### 4. Concurrency & Thread Safety
+
+**Actor Isolation Strategy**:
+
+| Component | Isolation | Rationale |
+|-----------|-----------|-----------|
+| `SpokenWordTranscriber` | `@MainActor` | Updates `@Published` for SwiftUI |
+| `DiarizationManager` (app) | `@MainActor` + `@Observable` | SwiftUI state management |
+| `DiarizerManager` (FluidAudio) | None | CPU-bound ML, runs off-main |
+| `SpeakerManager` | `DispatchQueue.sync` | Thread-safe in-memory database |
+| `Recorder` | `@unchecked Sendable` | Manual sync via `audioQueue` |
+
+**Key Pattern**: `Recorder.audioQueue` (`.userInteractive` QoS) wraps all AVAudioEngine operations to prevent QoS inversions and main-thread blocking.
+
+## Development-Specific Guidance
+
+### Model Warmup (Critical for Smooth UX)
+
+**Problem**: Cold-start ML model loading causes ~2-3s delay on first recording.
+
+**Solution**: Preload models off-main thread before UI interaction (`ModelWarmupService.swift`):
+```swift
+// Called at app launch and before recording
+ModelWarmupService.shared.warmupIfNeeded()
+```
+
+**Call Sites**:
+- `ScribeApp.init()` - App launch
+- `ScribeApp.body.task` - View appears
+- `TranscriptView.onAppear` - Before recording UI
+
+### Adaptive Backpressure Controls
+
+**Problem**: Long recordings with real-time diarization can accumulate audio faster than ML inference processes.
+
+**Safeguards** (`DiarizationManager.swift:241-278`):
+1. **Buffer limit**: Drops oldest samples when `audioBuffer` exceeds `maxLiveBufferSeconds` (default 8s)
+2. **Adaptive window**: Increases processing window when inference takes >80% of window duration
+3. **Adaptive pause**: Disables real-time after 3 consecutive drops, resumes after 15s cooldown
+4. **UI notifications**: Posts `backpressureNotification` for user feedback
+
+### Known Issue: macOS XCTest Finalize "nilError"
+
+**Problem**: Speech framework throws opaque `nilError` during test teardown when calling `finishTranscribing()` in XCTest context.
+
+**Workarounds**:
+- Mark macOS smoke tests with `XCTSkip` by default (`TranscriberSmokeTests.swift`)
+- Use CLI smoke tests for deterministic output (`Scripts/RecorderSmokeCLI/`)
+- CI relies on CLI tests, not XCTest for Speech pipeline validation
+
+### Swift 6 Type-Checker Relief
+
+**Problem**: `TranscriptView.body` exceeded type-checker complexity limits (2000+ lines).
+
+**Solutions Applied**:
+1. **View Splitting**: Extract `LiveRecordingContentView`, `FinishedMemoContentView`, `BannerOverlayView`
+2. **AnyView Erasure**: Wrap platform conditionals and mode switches
+3. **ViewModifier Extraction**: `RecordingHandlersModifier` centralizes all event handlers
+4. **iOS Toolbar Split**: `IOSPrincipalToolbar` builder for complex navigation bar
+
+**Result**: Compile time reduced from 30s+ to <5s.
+
+### Bluetooth Audio HAL Handling
+
+**Problem**: Bluetooth devices with small tap buffers (2048) cause `kAudioUnitErr_CannotDoInCurrentContext` errors.
+
+**Solution** (`Recorder.swift:409-440`):
+- Detect Bluetooth via `AVAudioSession.currentRoute` (iOS) or port type (macOS)
+- Use **4096 frame buffer** for Bluetooth, **2048 for others**
+- Install tap at device native format (stability over format matching)
+
+### URL Scheme Automation
+
+**Registration Required**: Add to `Info.plist` (see README.md for XML snippet)
+
+**Scheme**: `swiftscribe://record` triggers auto-record if `settings.allowURLRecordTrigger` enabled.
+
+**Handler Flow**:
+```
+ScribeApp.onOpenURL → NotificationCenter.post(.urlTriggeredRecord)
+  → TranscriptView.onReceive → recorder.record()
+```
+
+**Use Cases**: Automation scripts, Shortcuts integration, external triggers.
+
+## Testing Infrastructure
+
+### Test Suites (18 Tests, ~1.6s Runtime)
+
+**Unit Tests** (`ScribeTests/`):
+- `ScribeTests.swift` - AppSettings initialization and configuration
+- `DiarizationManagerTests.swift` - Real-time vs batch processing with mock diarizer
+- `SwiftDataPersistenceTests.swift` - Speaker/segment persistence and relationships
+- `MemoAIFlowTests.swift` - AI content generation with mock generators
+- `RecordingFlowTests.swift` - End-to-end recording scenarios (no real audio)
+
+**Integration Tests**:
+- `OfflineModelsVerificationTests.swift` - Verifies bundled CoreML models in app bundle
+- `TranscriberSmokeTests.swift` - Real Speech pipeline (marked `XCTSkip` on macOS)
+
+**Smoke Tests** (Deterministic):
+- `Scripts/RecorderSmokeCLI/run_cli.sh` - Headless transcription pipeline test
+- Processes known WAV file, validates output without XCTest flakiness
+
+### CI Verification
+
+**GitHub Actions Workflow** (`.github/workflows/ci.yml`):
+1. Build & test macOS target
+2. Verify bundled models (`Scripts/verify_bundled_models.sh`)
+3. Optional: CLI smoke test with reference audio
+4. Build & test iOS Simulator target
+
+**Model Verification**: Ensures `speaker-diarization-coreml/` folder + `coremldata.bin` files present in both macOS and iOS bundles.
+
+## Project Structure
+
+```
+Scribe/
+├── Audio/                      # Audio capture & diarization
+│   ├── Recorder.swift          # Dual AVAudioEngine, 790 lines
+│   ├── DiarizationManager.swift # App-level diarization wrapper, 715 lines
+│   └── FluidAudio/             # Vendored speaker diarization library
+│       ├── Diarizer/           # DiarizerManager, SegmentationProcessor, etc.
+│       └── Shared/             # ANEMemoryUtils, AppLogger
+├── Transcription/
+│   └── Transcription.swift     # SpeechTranscriber integration, 427 lines
+├── Models/
+│   ├── MemoModel.swift         # SwiftData Memo model, 349 lines
+│   ├── SpeakerModels.swift     # Speaker + SpeakerSegment models, 196 lines
+│   └── AppSettings.swift       # Observable settings (40+ properties)
+├── Views/
+│   ├── ContentView.swift       # Navigation split view
+│   ├── TranscriptView.swift    # Recording/playback UI, 2060 lines
+│   ├── SettingsView.swift      # Settings interface
+│   ├── Speaker*.swift          # Enrollment, enhance, rename, verify
+│   ├── Components/             # Reusable UI components
+│   └── Modifiers/              # Custom view modifiers
+├── Helpers/
+│   ├── FoundationModelsHelper.swift # On-device AI wrapper
+│   ├── ModelWarmupService.swift     # ML preloading
+│   ├── BufferConversion.swift       # Audio format conversion
+│   ├── MicrophoneSelector.swift     # Cross-platform device selection
+│   ├── AudioDevices.swift           # macOS CoreAudio helpers
+│   ├── SpeakerIO.swift              # Speaker profile import/export
+│   ├── TranscriptExport.swift       # JSON/Markdown export
+│   └── WaveformGenerator.swift      # RMS waveform visualization
+└── ScribeApp.swift             # App entry point, 42 lines
+
+ScribeTests/                    # Unit & integration tests
+Scripts/                        # Build verification & smoke tests
+speaker-diarization-coreml/     # Bundled CoreML models (offline)
+```
+
+## Framework Dependencies
+
+**Apple Frameworks**:
+- **SwiftUI** - Declarative UI with `@Observable` pattern
+- **SwiftData** - Object persistence with `@Model` macro
+- **Speech** - Real-time transcription (`SpeechAnalyzer`, `SpeechTranscriber`)
+- **AVFoundation** - Audio capture, playback, file I/O
+- **FoundationModels** - On-device AI text generation (iOS 18+/macOS 15+)
+
+**External Dependencies**:
+- **FluidAudio** (vendored, no Swift Package) - Professional speaker diarization
+  - Source: `https://github.com/FluidInference/FluidAudio/`
+  - Provides `DiarizerManager`, `SpeakerManager`, CoreML model integration
+
+## Key Architectural Strengths
+
+1. **Privacy-First**: All processing on-device (no network calls, fully offline)
+2. **Resilience**: Retry logic, format change handling, graceful degradation
+3. **Performance**: Zero-copy buffers, adaptive processing, model warmup
+4. **Cross-Platform**: Conditional compilation for iOS/macOS differences
+5. **Modern Swift**: Swift 6 concurrency, strict sendability, actor isolation
+6. **Testability**: Protocol injection, mock diarizers, deterministic tests
+
+## Common Development Tasks
+
+### Adding New AI Features
+1. Extend `FoundationModelsHelper.swift` with generation methods
 2. Update `MemoModel.swift` to store AI-generated content
 3. Modify `TranscriptView.swift` to trigger AI processing
 
-**Extending Speaker Diarization:**
+### Extending Speaker Diarization
 1. Update `SpeakerModels.swift` for new speaker metadata
 2. Modify `DiarizationManager.swift` for additional FluidAudio features
 3. Enhance `MemoModel.swift` speaker attribution methods
 
-**UI Enhancements:**
+### UI Enhancements
 1. Update both iOS and macOS code paths in views
 2. Test navigation and layout on different screen sizes
-3. Ensure accessibility support for voice-based app
+3. Use `AnyView` erasure for complex conditional UI (trade compile time for runtime overhead)
 
-## Project-Specific Requirements
+## Troubleshooting
 
-### Development Environment
-- **Xcode Beta** with latest Swift 6.2+ toolchain required
-- **iOS 26 Beta/macOS 26 Beta** development targets
-- **Apple Developer Account** with beta program access for testing
+### Build Issues
+- **"No such module 'Speech'"**: Ensure deployment target is iOS 26+/macOS 26+
+- **Type-checker timeout**: Split complex views, use `AnyView` for conditionals
+- **Missing models error**: Run `Scripts/verify_bundled_models.sh` to check bundle
 
-### Capabilities and Entitlements
-- Microphone usage for audio recording
-- Speech recognition authorization
-- Local file system access for audio file storage
-- No network permissions required (completely offline operation)
+### Runtime Issues
+- **Recording stops at ~13s**: Check model warmup is enabled (`ModelWarmupService`)
+- **Bluetooth audio HAL errors**: Verify dynamic buffer sizing (4096 for BT)
+- **XCTest finalize crashes**: Use CLI smoke tests instead (`RecorderSmokeCLI`)
 
-### Performance Considerations
-- Optimized for Apple Silicon with MLX framework usage
-- Real-time audio processing requires adequate device performance
-- Speaker diarization is computationally intensive - consider making it optional
-- SwiftData queries for speaker segments should be optimized for large transcripts
+### Performance Issues
+- **High CPU during recording**: Enable adaptive backpressure, increase processing window
+- **UI jank during live diarization**: Disable real-time processing, use final pass only
+- **Slow cold-start**: Ensure `ModelWarmupService.warmupIfNeeded()` called at app launch

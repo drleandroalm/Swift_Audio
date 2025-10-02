@@ -1,0 +1,3 @@
+/* Localized Info.plist strings — Base (English) */
+"NSMicrophoneUsageDescription" = "Swift Scribe needs microphone access to transcribe your audio.";
+

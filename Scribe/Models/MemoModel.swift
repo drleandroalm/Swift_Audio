@@ -1,7 +1,6 @@
 import AVFoundation
 import Foundation
 import FoundationModels
-import FluidAudio
 import SwiftData
 import SwiftUI
 
@@ -25,6 +24,8 @@ class Memo {
 
     // This can't be persisted with SwiftData since DiarizationResult isn't a @Model
     @Transient var diarizationResult: DiarizationResult?
+    // Track the live recording start time so UI timers survive view refreshes while recording
+    @Transient var activeRecordingStart: Date?
 
     init(
         title: String, text: AttributedString, url: URL? = nil, isDone: Bool = false,
@@ -43,8 +44,10 @@ class Memo {
     }
 
     /// Generates an AI-enhanced title and summary, storing them persistently
-    func generateAIEnhancements() async throws {
-        guard SystemLanguageModel.default.isAvailable else {
+    func generateAIEnhancements(
+        using generator: any MemoAIContentGenerating = DefaultMemoAIContentGenerator()
+    ) async throws {
+        guard generator.isModelAvailable else {
             throw FoundationModelsError.generationFailed(
                 NSError(domain: "Foundation Models not available", code: -1))
         }
@@ -55,80 +58,32 @@ class Memo {
                 NSError(domain: "No content to enhance", code: -2))
         }
 
-        // Generate enhanced title and summary concurrently
-        let titleResult = try? await generateEnhancedTitle(from: transcriptText)
-        let summaryResult = try? await generateRichSummary(from: transcriptText)
+        let titleResult = try? await generator.generateTitle(for: transcriptText)
+        let summaryResult = try? await generator.generateSummary(for: transcriptText)
 
-        // Update the memo with generated content
-        self.title = titleResult ?? "New Note"
-        self.summary = summaryResult ?? "Something went wrong generating a summary."
-    }
-
-    private func generateEnhancedTitle(from text: String) async throws -> String {
-        let session = FoundationModelsHelper.createSession(
-            instructions: """
-                You are an expert at creating clear, descriptive titles for voice memos and transcripts.
-                Your task is to create a concise, informative title that captures the main topic or purpose.
-
-                Guidelines:
-                - Keep titles between 3-8 words
-                - Use title case (capitalize major words)
-                - Focus on the main topic or key insight
-                - Avoid generic words like memo or recording
-                - Be specific and descriptive
-                - Do not wrap the title in quotes
-                """)
-
-        let prompt =
-            "Create a clear, descriptive title for this voice memo transcript (do not include quotes in your response):\n\n\(text)"
-
-        let title = try await FoundationModelsHelper.generateText(
-            session: session,
-            prompt: prompt,
-            options: FoundationModelsHelper.temperatureOptions(0.3)  // Low temperature for consistent titles
-        )
-        return title.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(
-            of: "\"", with: "")
-    }
-
-    private func generateRichSummary(from text: String) async throws -> AttributedString {
-        let session = FoundationModelsHelper.createSession(
-            instructions: """
-                You are an expert at creating concise, informative summaries of voice memos and transcripts.
-                Your summaries should capture the key points, main topics, and important details.
-
-                Guidelines:
-                - Create 2-4 well-structured paragraphs
-                - Include key points and important details
-                - Mark important concepts or key terms that should be highlighted
-                - Output in markdown format
-                """)
-
-        let prompt = "Create a comprehensive summary of this voice memo transcript:\n\n\(text)"
-        let summaryText = try await FoundationModelsHelper.generateText(
-            session: session,
-            prompt: prompt,
-            options: FoundationModelsHelper.temperatureOptions(0.4)
-        )
-
-        // Convert to AttributedString
-        return try AttributedString(markdown: summaryText)
+        self.title = titleResult ?? "Novo memorando"
+        self.summary = summaryResult ?? "Ocorreu um problema ao gerar o resumo."
     }
 
     // Legacy method for backward compatibility
-    func suggestedTitle() async throws -> String? {
-        return try await generateEnhancedTitle(from: String(text.characters))
+    func suggestedTitle(
+        generator: any MemoAIContentGenerating = DefaultMemoAIContentGenerator()
+    ) async throws -> String? {
+        return try await generator.generateTitle(for: String(text.characters))
     }
 
     // Legacy method for backward compatibility - now returns AttributedString
-    func summarize(using template: String) async throws -> AttributedString? {
-        return try await generateRichSummary(from: String(text.characters))
+    func summarize(
+        using template: String,
+        generator: any MemoAIContentGenerating = DefaultMemoAIContentGenerator()
+    ) async throws -> AttributedString? {
+        return try await generator.generateSummary(for: String(text.characters))
     }
 }
 
 extension Memo {
     static func blank() -> Memo {
-        return .init(title: "New Memo", text: AttributedString(""))
+        return .init(title: "Novo Memorando", text: AttributedString(""))
     }
 
     // MARK: - Speaker Diarization Methods
@@ -207,32 +162,57 @@ extension Memo {
         return (try? context.fetch(descriptor)) ?? []
     }
 
-    /// Returns a formatted transcript with speaker labels
+    /// Returns a formatted transcript with speaker labels, time ranges and confidence values
+    /// Uses precise token-time alignment to color and extract text for each diarized segment
     func formattedTranscriptWithSpeakers(context: ModelContext) -> AttributedString {
         guard hasSpeakerData else { return textBrokenUpByParagraphs() }
 
         var result = AttributedString("")
         let sortedSegments = speakerSegments.sorted(by: { $0.startTime < $1.startTime })
+        let base = self.text
 
-                for (index, segment) in sortedSegments.enumerated() {
+        for (index, segment) in sortedSegments.enumerated() {
             // Get speaker information
             let speakerId = segment.speakerId
             let descriptor = FetchDescriptor<Speaker>(predicate: #Predicate { speaker in
                 speaker.id == speakerId
             })
             let speaker = try? context.fetch(descriptor).first
-            let speakerName = speaker?.name ?? "Speaker \(segment.speakerId)"
+            let speakerName = speaker?.name ?? "Falante \(segment.speakerId)"
 
             // Add speaker label
-            var speakerLabel = AttributedString("\(speakerName): ")
+            var speakerLabel = AttributedString("\(speakerName)")
             speakerLabel.font = .headline
             speakerLabel.foregroundColor = speaker?.displayColor ?? .primary
 
             result.append(speakerLabel)
 
-            // Add segment text
-            var segmentText = AttributedString(segment.text)
-            segmentText.foregroundColor = .primary
+            // Metadata line with time range and confidence
+            let start = formatClock(segment.startTime)
+            let end = formatClock(segment.endTime)
+            let confidencePct = Int((segment.confidence * 100).rounded())
+            var meta = AttributedString("  •  \(start)–\(end)  •  confiança \(confidencePct)%\n")
+            meta.font = .caption2
+            meta.foregroundColor = .secondary
+            result.append(meta)
+
+            // Add segment text — precise token-time extraction & coloring
+            let segStart = segment.startTime
+            let segEnd = segment.endTime
+            var segmentText = AttributedString("")
+            base.runs.forEach { run in
+                guard let tr = base[run.range].audioTimeRange else { return }
+                // overlap if run mid-time within segment time
+                let mid = (tr.start.seconds + tr.end.seconds) * 0.5
+                guard mid >= segStart && mid < segEnd else { return }
+                var piece = base[run.range]
+                if let color = speaker?.displayColor {
+                    piece.foregroundColor = color
+                }
+                piece[AttributedString.speakerIDKey] = speakerId
+                piece[AttributedString.speakerConfidenceKey] = segment.confidence
+                segmentText.append(piece)
+            }
             result.append(segmentText)
 
             // Add line break between segments
@@ -244,10 +224,17 @@ extension Memo {
         return result
     }
 
+    private func formatClock(_ seconds: TimeInterval) -> String {
+        let s = Int(seconds.rounded())
+        let m = s / 60
+        let r = s % 60
+        return String(format: "%02d:%02d", m, r)
+    }
+
     func textBrokenUpByParagraphs() -> AttributedString {
         print(String(text.characters))
         if url == nil {
-            print("url was nil")
+            print("URL estava ausente")
             return text
         } else {
             var final = AttributedString("")
@@ -278,5 +265,84 @@ extension Memo {
 
             return final
         }
+    }
+}
+
+protocol MemoAIContentGenerating {
+    var isModelAvailable: Bool { get }
+    func generateTitle(for text: String) async throws -> String
+    func generateSummary(for text: String) async throws -> AttributedString
+}
+
+struct DefaultMemoAIContentGenerator: MemoAIContentGenerating {
+    var isModelAvailable: Bool {
+        SystemLanguageModel.default.isAvailable
+    }
+
+    func generateTitle(for text: String) async throws -> String {
+        let cleanText = sanitizeForGuardrails(text)
+        let session = FoundationModelsHelper.createSession(
+            instructions: """
+                Você é especialista em criar títulos claros e descritivos para memorandos de voz e transcrições.
+                Sua tarefa é produzir um título conciso e informativo que represente o tema principal ou o objetivo.
+
+                Diretrizes:
+                - Mantenha os títulos entre 3 e 8 palavras
+                - Use caixa de título (capitalize as palavras principais)
+                - Foque no tema principal ou no insight mais importante
+                - Evite termos genéricos como memorando ou gravação
+                - Seja específico e descritivo
+                - Não envolva o título entre aspas
+                """)
+
+        let prompt = "Crie um título claro e descritivo para esta transcrição de memorando de voz (não inclua aspas na resposta):\n\n\(cleanText)"
+
+        let title = try await FoundationModelsHelper.generateText(
+            session: session,
+            prompt: prompt,
+            options: FoundationModelsHelper.temperatureOptions(0.3)
+        )
+        return title.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: "\"", with: "")
+    }
+
+    func generateSummary(for text: String) async throws -> AttributedString {
+        let cleanText = sanitizeForGuardrails(text)
+        let session = FoundationModelsHelper.createSession(
+            instructions: """
+                Você é especialista em criar resumos concisos e informativos de memorandos de voz e transcrições.
+                Seus resumos devem capturar os pontos principais, os tópicos centrais e detalhes relevantes.
+
+                Diretrizes:
+                - Crie de 2 a 4 parágrafos bem estruturados
+                - Inclua os principais pontos e detalhes importantes
+                - Destaque conceitos ou termos-chave que mereçam atenção
+                - Entregue o resultado em formato Markdown
+                """)
+
+        let prompt = "Crie um resumo completo para esta transcrição de memorando de voz:\n\n\(cleanText)"
+        let summaryText = try await FoundationModelsHelper.generateText(
+            session: session,
+            prompt: prompt,
+            options: FoundationModelsHelper.temperatureOptions(0.4)
+        )
+
+        return try AttributedString(markdown: summaryText)
+    }
+
+    // MARK: - Safety helpers
+    private func sanitizeForGuardrails(_ text: String) -> String {
+        // Lightweight sanitization to reduce safety filter trips while preserving meaning
+        // Mask a small set of common profanities in PT/EN
+        let patterns: [String] = [
+            "(?i)porra", "(?i)merda", "(?i)p[êe]nis", "(?i)caralho", "(?i)puta", "(?i)fuck", "(?i)shit"
+        ]
+        var result = text
+        for pat in patterns {
+            if let regex = try? NSRegularExpression(pattern: pat) {
+                let range = NSRange(result.startIndex..<result.endIndex, in: result)
+                result = regex.stringByReplacingMatches(in: result, options: [], range: range, withTemplate: "***")
+            }
+        }
+        return result
     }
 }

@@ -19,18 +19,18 @@ public enum TranscriptionError: Error {
         switch self {
 
         case .couldNotDownloadModel:
-            return "Could not download the model."
+            return "Não foi possível baixar o modelo."
         case .failedToSetupRecognitionStream:
-            return "Could not set up the speech recognition stream."
+            return "Não foi possível configurar a transmissão de reconhecimento de voz."
         case .invalidAudioDataType:
-            return "Unsupported audio format."
+            return "Formato de áudio não suportado."
         case .localeNotSupported:
-            return "This locale is not yet supported by SpeechAnalyzer."
+            return "Esta localidade ainda não é compatível com o SpeechAnalyzer."
         case .noInternetForModelDownload:
             return
-                "The model could not be downloaded because the user is not connected to internet."
+                "O modelo não pôde ser baixado porque o dispositivo está sem conexão com a internet."
         case .audioFilePathNotFound:
-            return "Couldn't write audio to file."
+            return "Não foi possível gravar o áudio no arquivo."
         }
     }
 }

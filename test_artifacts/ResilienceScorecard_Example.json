@@ -1,0 +1,245 @@
+{
+  "test_run": {
+    "timestamp": "2025-10-02T19:30:00Z",
+    "duration_seconds": 125.5,
+    "scenarios_executed": 16,
+    "scenarios_passed": 13,
+    "overall_resilience_score": 72.3
+  },
+  "scenarios": [
+    {
+      "scenario": "BufferOverflow",
+      "category": "Audio Pipeline",
+      "passed": true,
+      "recovery_time_ms": 3045.2,
+      "user_impact": "degraded",
+      "resilience_score": 85.0,
+      "error": null,
+      "details": {
+        "oversized_buffers_injected": 120,
+        "oversized_buffers_rejected": 120,
+        "crashes": 0
+      }
+    },
+    {
+      "scenario": "FormatMismatch",
+      "category": "Audio Pipeline",
+      "passed": true,
+      "recovery_time_ms": 2150.0,
+      "user_impact": "transparent",
+      "resilience_score": 90.0,
+      "error": null,
+      "details": {
+        "format_mismatches_injected": 1,
+        "format_conversions_successful": 1,
+        "crashes": 0
+      }
+    },
+    {
+      "scenario": "FirstBufferTimeout",
+      "category": "Audio Pipeline",
+      "passed": true,
+      "recovery_time_ms": 2450.0,
+      "user_impact": "transparent",
+      "resilience_score": 95.0,
+      "error": null,
+      "details": {
+        "watchdog_timeouts_forced": 1,
+        "watchdog_recoveries_observed": 1,
+        "crashes": 0
+      }
+    },
+    {
+      "scenario": "ConverterFailure",
+      "category": "Audio Pipeline",
+      "passed": false,
+      "recovery_time_ms": 1200.0,
+      "user_impact": "broken",
+      "resilience_score": 35.0,
+      "error": "Failed to create converter",
+      "details": {
+        "converter_failures_injected": 1,
+        "converter_fallbacks_observed": 0,
+        "crashes": 0
+      }
+    },
+    {
+      "scenario": "RouteChangeDuringRecording",
+      "category": "Audio Pipeline",
+      "passed": true,
+      "recovery_time_ms": 5100.0,
+      "user_impact": "transparent",
+      "resilience_score": 80.0,
+      "error": null,
+      "details": {
+        "crashes": 0
+      }
+    },
+    {
+      "scenario": "CorruptAudioBuffers",
+      "category": "Audio Pipeline",
+      "passed": true,
+      "recovery_time_ms": 3200.0,
+      "user_impact": "degraded",
+      "resilience_score": 75.0,
+      "error": null,
+      "details": {
+        "corrupted_buffers_injected": 45,
+        "corrupted_buffers_dropped": 45,
+        "crashes": 0
+      }
+    },
+    {
+      "scenario": "MissingSegmentationModel",
+      "category": "ML Model",
+      "passed": true,
+      "recovery_time_ms": 150.0,
+      "user_impact": "degraded",
+      "resilience_score": 70.0,
+      "error": null,
+      "details": {
+        "missing_models_injected": 1,
+        "model_load_graceful_degradations": 1,
+        "crashes": 0
+      }
+    },
+    {
+      "scenario": "InvalidEmbeddings",
+      "category": "ML Model",
+      "passed": true,
+      "recovery_time_ms": 50.0,
+      "user_impact": "degraded",
+      "resilience_score": 75.0,
+      "error": null,
+      "details": {
+        "invalid_embeddings_injected": 1,
+        "invalid_embeddings_rejected": 1,
+        "crashes": 0
+      }
+    },
+    {
+      "scenario": "ANEAllocationFailure",
+      "category": "ML Model",
+      "passed": true,
+      "recovery_time_ms": 100.0,
+      "user_impact": "transparent",
+      "resilience_score": 95.0,
+      "error": null,
+      "details": {
+        "ane_failures_injected": 1,
+        "ane_fallbacks_observed": 1,
+        "crashes": 0
+      }
+    },
+    {
+      "scenario": "LocaleUnavailable",
+      "category": "Speech Framework",
+      "passed": true,
+      "recovery_time_ms": 200.0,
+      "user_impact": "transparent",
+      "resilience_score": 90.0,
+      "error": null,
+      "details": {
+        "locale_failures_injected": 1,
+        "locale_fallbacks_observed": 1,
+        "crashes": 0
+      }
+    },
+    {
+      "scenario": "ModelDownloadFailure",
+      "category": "Speech Framework",
+      "passed": false,
+      "recovery_time_ms": 500.0,
+      "user_impact": "broken",
+      "resilience_score": 30.0,
+      "error": "Model download failed: No internet connection",
+      "details": {
+        "model_download_failures_injected": 1,
+        "crashes": 0
+      }
+    },
+    {
+      "scenario": "EmptyTranscriptionResults",
+      "category": "Speech Framework",
+      "passed": true,
+      "recovery_time_ms": 50.0,
+      "user_impact": "transparent",
+      "resilience_score": 95.0,
+      "error": null,
+      "details": {
+        "empty_results_injected": 1,
+        "empty_results_handled_gracefully": 1,
+        "crashes": 0
+      }
+    },
+    {
+      "scenario": "SaveFailure",
+      "category": "SwiftData",
+      "passed": false,
+      "recovery_time_ms": 350.0,
+      "user_impact": "broken",
+      "resilience_score": 25.0,
+      "error": "Failed to save context after 3 retries",
+      "details": {
+        "save_failures_injected": 3,
+        "save_retries_observed": 2,
+        "crashes": 0
+      }
+    },
+    {
+      "scenario": "ConcurrentWriteConflict",
+      "category": "SwiftData",
+      "passed": true,
+      "recovery_time_ms": 450.0,
+      "user_impact": "transparent",
+      "resilience_score": 90.0,
+      "error": null,
+      "details": {
+        "concurrent_write_conflicts_detected": 0,
+        "crashes": 0
+      }
+    },
+    {
+      "scenario": "MemoryPressure",
+      "category": "System Resources",
+      "passed": true,
+      "recovery_time_ms": 3500.0,
+      "user_impact": "degraded",
+      "resilience_score": 70.0,
+      "error": null,
+      "details": {
+        "memory_pressure_injected": true,
+        "adaptive_backpressure_triggered": true,
+        "crashes": 0
+      }
+    },
+    {
+      "scenario": "PermissionDenial",
+      "category": "System Resources",
+      "passed": true,
+      "recovery_time_ms": 100.0,
+      "user_impact": "broken",
+      "resilience_score": 40.0,
+      "error": null,
+      "details": {
+        "permission_denials_injected": 1,
+        "crashes": 0
+      }
+    }
+  ],
+  "category_scores": {
+    "Audio Pipeline": 76.7,
+    "ML Model": 80.0,
+    "Speech Framework": 71.7,
+    "SwiftData": 57.5,
+    "System Resources": 55.0
+  },
+  "recommendations": [
+    "Implement retry logic for SwiftData save failures (currently no retries)",
+    "Add offline model bundling to eliminate download dependency",
+    "Add fallback audio format conversion path",
+    "Improve permission denial UX with Settings deep link",
+    "Optimize recovery time for RouteChangeDuringRecording (currently 5100ms)",
+    "Critical: 3 scenarios result in broken user experience"
+  ]
+}

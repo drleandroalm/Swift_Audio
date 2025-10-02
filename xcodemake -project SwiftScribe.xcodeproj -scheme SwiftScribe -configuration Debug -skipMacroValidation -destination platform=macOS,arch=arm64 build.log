@@ -1,0 +1,660 @@
+Command line invocation:
+    /Applications/Xcode-beta.app/Contents/Developer/usr/bin/xcodebuild -project SwiftScribe.xcodeproj -scheme SwiftScribe -configuration Debug -skipMacroValidation -destination platform=macOS,arch=arm64 build
+
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (1 target)
+    Target 'SwiftScribe' in project 'SwiftScribe' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode-beta.app/Contents/Developer/usr/bin/actool --version --output-format xml1
+
+ExecuteExternalTool /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+Build description signature: bb0288d10a263038824d3be0034c9c08
+Build description path: /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/XCBuildData/bb0288d10a263038824d3be0034c9c08.xcbuilddata
+ClangStatCache /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.1-25B5042i-3885c01c3e6b6a337905948deab2002ed77eb18e28310dc39e4af1f069d89823.sdkstatcache
+    cd /Users/leandroalmeida/swift-scribe/SwiftScribe.xcodeproj
+    /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk -o /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.1-25B5042i-3885c01c3e6b6a337905948deab2002ed77eb18e28310dc39e4af1f069d89823.sdkstatcache
+
+CreateBuildDirectory /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products
+    cd /Users/leandroalmeida/swift-scribe/SwiftScribe.xcodeproj
+    builtin-create-build-directory /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products
+
+CreateBuildDirectory /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex
+    cd /Users/leandroalmeida/swift-scribe/SwiftScribe.xcodeproj
+    builtin-create-build-directory /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex
+
+CreateBuildDirectory /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug
+    cd /Users/leandroalmeida/swift-scribe/SwiftScribe.xcodeproj
+    builtin-create-build-directory /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug
+
+CreateBuildDirectory /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+    cd /Users/leandroalmeida/swift-scribe/SwiftScribe.xcodeproj
+    builtin-create-build-directory /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+CreateBuildDirectory /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/ExplicitPrecompiledModules
+    cd /Users/leandroalmeida/swift-scribe/SwiftScribe.xcodeproj
+    builtin-create-build-directory /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+WriteAuxiliaryFile /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe-ccb14174e86a5a76a9556fe336c18824-VFS/all-product-headers.yaml
+    cd /Users/leandroalmeida/swift-scribe/SwiftScribe.xcodeproj
+    write-file /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe-ccb14174e86a5a76a9556fe336c18824-VFS/all-product-headers.yaml
+
+CreateBuildDirectory /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/EagerLinkingTBDs/Debug
+    cd /Users/leandroalmeida/swift-scribe/SwiftScribe.xcodeproj
+    builtin-create-build-directory /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/EagerLinkingTBDs/Debug
+
+WriteAuxiliaryFile /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe.hmap (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    write-file /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe.hmap
+
+WriteAuxiliaryFile /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-project-headers.hmap (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    write-file /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-project-headers.hmap
+
+WriteAuxiliaryFile /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-generated-files.hmap (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    write-file /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-generated-files.hmap
+
+WriteAuxiliaryFile /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/empty-SwiftScribe.plist (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    write-file /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/empty-SwiftScribe.plist
+
+WriteAuxiliaryFile /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-own-target-headers.hmap (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    write-file /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-own-target-headers.hmap
+
+WriteAuxiliaryFile /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-all-target-headers.hmap (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    write-file /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-all-target-headers.hmap
+
+WriteAuxiliaryFile /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe.DependencyStaticMetadataFileList (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    write-file /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe.DependencyMetadataFileList (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    write-file /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe.DependencyMetadataFileList
+
+WriteAuxiliaryFile /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-all-non-framework-target-headers.hmap (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    write-file /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-all-non-framework-target-headers.hmap
+
+WriteAuxiliaryFile /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-DebugDylibPath-normal-arm64.txt (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    write-file /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-DebugDylibPath-normal-arm64.txt
+
+WriteAuxiliaryFile /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-DebugDylibInstallName-normal-arm64.txt (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    write-file /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-DebugDylibInstallName-normal-arm64.txt
+
+WriteAuxiliaryFile /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe_const_extract_protocols.json (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    write-file /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe_const_extract_protocols.json
+
+WriteAuxiliaryFile /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe.SwiftConstValuesFileList (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    write-file /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe.SwiftFileList (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    write-file /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe.SwiftFileList
+
+WriteAuxiliaryFile /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe.LinkFileList (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    write-file /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe.LinkFileList
+
+WriteAuxiliaryFile /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe-OutputFileMap.json (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    write-file /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe-OutputFileMap.json
+
+WriteAuxiliaryFile /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/DerivedSources/Entitlements.plist (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    write-file /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/DerivedSources/Entitlements.plist
+
+MkDir /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/Resources (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    /bin/mkdir -p /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/Resources
+
+MkDir /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/MacOS (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    /bin/mkdir -p /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/MacOS
+
+MkDir /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    /bin/mkdir -p /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents
+
+MkDir /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    /bin/mkdir -p /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app
+
+ProcessProductPackaging "" /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe.app.xcent (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+    Entitlements:
+    
+    {
+    "com.apple.security.app-sandbox" = 1;
+    "com.apple.security.device.audio-input" = 1;
+    "com.apple.security.device.bluetooth" = 1;
+    "com.apple.security.files.user-selected.read-only" = 1;
+    "com.apple.security.get-task-allow" = 1;
+    "com.apple.security.network.client" = 1;
+}
+    
+    builtin-productPackagingUtility -entitlements -format xml -o /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe.app.xcent
+
+ProcessProductPackagingDER /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe.app.xcent /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe.app.xcent.der (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    /usr/bin/derq query -f xml -i /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe.app.xcent -o /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe.app.xcent.der --raw
+
+Ld /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/MacOS/__preview.dylib normal (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-macos26.0 -dynamiclib -isysroot /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk -O0 -L/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug -F/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug -install_name @rpath/SwiftScribe.debug.dylib -dead_strip -rdynamic -Xlinker -no_deduplicate -Xlinker -dependency_info -Xlinker /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe_dependency_info.dat -Xlinker -no_adhoc_codesign -o /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/MacOS/__preview.dylib
+
+GenerateAssetSymbols /Users/leandroalmeida/swift-scribe/Scribe/Helpers/Assets.xcassets (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    /Applications/Xcode-beta.app/Contents/Developer/usr/bin/actool /Users/leandroalmeida/swift-scribe/Scribe/Helpers/Assets.xcassets --compile /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/Resources --output-format human-readable-text --notices --warnings --export-dependency-info /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/assetcatalog_dependencies --output-partial-info-plist /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/assetcatalog_generated_info.plist --app-icon AppIcon --accent-color AccentColor --enable-on-demand-resources NO --development-region en --target-device mac --minimum-deployment-target 26.0 --platform macosx --bundle-identifier com.swift.examples.scribe.macos --generate-swift-asset-symbols /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/DerivedSources/GeneratedAssetSymbols.swift --generate-objc-asset-symbols /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/DerivedSources/GeneratedAssetSymbols.h --generate-asset-symbol-index /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/DerivedSources/GeneratedAssetSymbols-Index.plist
+/* com.apple.actool.compilation-results */
+/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/DerivedSources/GeneratedAssetSymbols-Index.plist
+/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/DerivedSources/GeneratedAssetSymbols.h
+/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/DerivedSources/GeneratedAssetSymbols.swift
+
+
+MkDir /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/assetcatalog_output/thinned (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    /bin/mkdir -p /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/assetcatalog_output/thinned
+
+CpResource /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/Resources/speaker-diarization-coreml /Users/leandroalmeida/swift-scribe/speaker-diarization-coreml (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/leandroalmeida/swift-scribe/speaker-diarization-coreml /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/Resources
+
+MkDir /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/assetcatalog_output/unthinned (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    /bin/mkdir -p /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/assetcatalog_output/unthinned
+
+CpResource /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/Resources/pt-BR.lproj/SwiftScribePlayground.playground /Users/leandroalmeida/swift-scribe/pt-BR.lproj/SwiftScribePlayground.playground (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/leandroalmeida/swift-scribe/pt-BR.lproj/SwiftScribePlayground.playground /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/Resources/pt-BR.lproj
+
+CpResource /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/Resources/Base.lproj/SwiftScribePlayground.playground /Users/leandroalmeida/swift-scribe/Base.lproj/SwiftScribePlayground.playground (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/leandroalmeida/swift-scribe/Base.lproj/SwiftScribePlayground.playground /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/Resources/Base.lproj
+
+CopyStringsFile /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/Resources/pt-BR.lproj/InfoPlist.strings /Users/leandroalmeida/swift-scribe/Scribe/pt-BR.lproj/InfoPlist.strings (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    builtin-copyStrings --validate --outputencoding UTF-16 --outfilename InfoPlist.strings --outdir /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/Resources/pt-BR.lproj -- /Users/leandroalmeida/swift-scribe/Scribe/pt-BR.lproj/InfoPlist.strings
+/Users/leandroalmeida/swift-scribe/Scribe/pt-BR.lproj/InfoPlist.strings:1:1: note: detected encoding of input file as Unicode (UTF-8) (in target 'SwiftScribe' from project 'SwiftScribe')
+
+CpResource /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/Resources/en.lproj/SwiftScribePlayground.playground /Users/leandroalmeida/swift-scribe/en.lproj/SwiftScribePlayground.playground (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/leandroalmeida/swift-scribe/en.lproj/SwiftScribePlayground.playground /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/Resources/en.lproj
+
+CopyStringsFile /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/Resources/Base.lproj/InfoPlist.strings /Users/leandroalmeida/swift-scribe/Scribe/Base.lproj/InfoPlist.strings (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    builtin-copyStrings --validate --outputencoding UTF-16 --outfilename InfoPlist.strings --outdir /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/Resources/Base.lproj -- /Users/leandroalmeida/swift-scribe/Scribe/Base.lproj/InfoPlist.strings
+/Users/leandroalmeida/swift-scribe/Scribe/Base.lproj/InfoPlist.strings:1:1: note: detected encoding of input file as Unicode (UTF-8) (in target 'SwiftScribe' from project 'SwiftScribe')
+
+CompileAssetCatalogVariant thinned /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/Resources /Users/leandroalmeida/swift-scribe/Scribe/Helpers/Assets.xcassets (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    /Applications/Xcode-beta.app/Contents/Developer/usr/bin/actool /Users/leandroalmeida/swift-scribe/Scribe/Helpers/Assets.xcassets --compile /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/assetcatalog_output/thinned --output-format human-readable-text --notices --warnings --export-dependency-info /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/assetcatalog_dependencies_thinned --output-partial-info-plist /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/assetcatalog_generated_info.plist_thinned --app-icon AppIcon --accent-color AccentColor --enable-on-demand-resources NO --development-region en --target-device mac --minimum-deployment-target 26.0 --platform macosx
+/* com.apple.actool.compilation-results */
+/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/assetcatalog_generated_info.plist_thinned
+/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/assetcatalog_output/thinned/AppIcon.icns
+/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/assetcatalog_output/thinned/Assets.car
+
+
+SwiftDriver SwiftScribe normal arm64 com.apple.xcode.tools.swift.compiler (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    builtin-SwiftDriver -- /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name SwiftScribe -Onone -enforce-exclusivity\=checked @/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe.SwiftFileList -DDEBUG -enable-upcoming-feature InternalImportsByDefault -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature ExistentialAny -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk -target arm64-apple-macos26.0 -g -module-cache-path /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug -F /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug -emit-localized-strings -emit-localized-strings-path /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64 -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.1-25B5042i-3885c01c3e6b6a337905948deab2002ed77eb18e28310dc39e4af1f069d89823.sdkstatcache -output-file-map /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe_const_extract_protocols.json -Xcc -iquote -Xcc /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-generated-files.hmap -Xcc -I/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-own-target-headers.hmap -Xcc -I/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-all-target-headers.hmap -Xcc -iquote -Xcc /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-project-headers.hmap -Xcc -I/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/include -Xcc -I/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/DerivedSources-normal/arm64 -Xcc -I/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/DerivedSources/arm64 -Xcc -I/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe-Swift.h -working-directory /Users/leandroalmeida/swift-scribe -experimental-emit-module-separately -disable-cmo
+
+SwiftCompile normal arm64 Compiling\ SpeakerIO.swift,\ SpeakersDocument.swift,\ TranscriptDocuments.swift,\ TranscriptExport.swift,\ WaveformGenerator.swift,\ AppSettings.swift /Users/leandroalmeida/swift-scribe/Scribe/Helpers/SpeakerIO.swift /Users/leandroalmeida/swift-scribe/Scribe/Helpers/SpeakersDocument.swift /Users/leandroalmeida/swift-scribe/Scribe/Helpers/TranscriptDocuments.swift /Users/leandroalmeida/swift-scribe/Scribe/Helpers/TranscriptExport.swift /Users/leandroalmeida/swift-scribe/Scribe/Helpers/WaveformGenerator.swift /Users/leandroalmeida/swift-scribe/Scribe/Models/AppSettings.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Helpers/SpeakerIO.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Helpers/SpeakersDocument.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Helpers/TranscriptDocuments.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Helpers/TranscriptExport.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Helpers/WaveformGenerator.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Models/AppSettings.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 Compiling\ AudioValidation.swift,\ DiarizerManager.swift,\ DiarizerModels.swift,\ DiarizerTypes.swift,\ EmbeddingExtractor.swift,\ SegmentationProcessor.swift,\ SlidingWindow.swift /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Diarizer/AudioValidation.swift /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Diarizer/DiarizerManager.swift /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Diarizer/DiarizerModels.swift /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Diarizer/DiarizerTypes.swift /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Diarizer/EmbeddingExtractor.swift /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Diarizer/SegmentationProcessor.swift /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Diarizer/SlidingWindow.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Diarizer/AudioValidation.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Diarizer/DiarizerManager.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Diarizer/DiarizerModels.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Diarizer/DiarizerTypes.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Diarizer/EmbeddingExtractor.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Diarizer/SegmentationProcessor.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+/Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Diarizer/SegmentationProcessor.swift:29:58: warning: use of protocol 'MLFeatureProvider' as a type must be written 'any MLFeatureProvider'; this will be an error in a future Swift language mode
+    ) throws -> (segments: [[[Float]]], featureProvider: MLFeatureProvider) {
+                                                         ^~~~~~~~~~~~~~~~~
+                                                         any MLFeatureProvider
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Diarizer/SlidingWindow.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 Compiling\ SystemInfo.swift,\ FluidAudioSwift.swift,\ ModelNames.swift,\ DiarizationManager.swift,\ Recorder.swift,\ AudioDevices.swift,\ BufferConversion.swift /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Shared/SystemInfo.swift /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/FluidAudioSwift.swift /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/ModelNames.swift /Users/leandroalmeida/swift-scribe/Scribe/Audio/DiarizationManager.swift /Users/leandroalmeida/swift-scribe/Scribe/Audio/Recorder.swift /Users/leandroalmeida/swift-scribe/Scribe/Helpers/AudioDevices.swift /Users/leandroalmeida/swift-scribe/Scribe/Helpers/BufferConversion.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Shared/SystemInfo.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+/Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Shared/SystemInfo.swift:80:16: warning: 'init(cString:)' is deprecated: Use String(decoding: array, as: UTF8.self) instead, after truncating the null termination.
+        return String(cString: buffer)
+               ^
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/FluidAudioSwift.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/ModelNames.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Audio/DiarizationManager.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+/Users/leandroalmeida/swift-scribe/Scribe/Audio/DiarizationManager.swift:91:49: warning: capture of 'work' with non-Sendable type '() throws -> T' in a '@Sendable' closure
+                do { cont.resume(returning: try work()) }
+                                                ^
+/Users/leandroalmeida/swift-scribe/Scribe/Audio/DiarizationManager.swift:91:49: note: a function type must be marked '@Sendable' to conform to 'Sendable'
+                do { cont.resume(returning: try work()) }
+                                                ^
+/Users/leandroalmeida/swift-scribe/Scribe/Audio/DiarizationManager.swift:598:16: warning: capture of 'servedFlag' with non-Sendable type 'UnsafeMutablePointer<UInt8>' in a '@Sendable' closure
+            if servedFlag.pointee == 0 {
+               ^
+Swift.UnsafeMutablePointer:1:23: note: generic struct 'UnsafeMutablePointer' does not conform to the 'Sendable' protocol
+@frozen public struct UnsafeMutablePointer<Pointee> : Copyable where Pointee : ~Copyable {
+                      ^
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Audio/Recorder.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+/Users/leandroalmeida/swift-scribe/Scribe/Audio/Recorder.swift:45:29: warning: use of protocol 'NSObjectProtocol' as a type must be written 'any NSObjectProtocol'; this will be an error in a future Swift language mode
+    private var observers: [NSObjectProtocol] = []
+                            ^~~~~~~~~~~~~~~~
+                            any NSObjectProtocol
+/Users/leandroalmeida/swift-scribe/Scribe/Audio/Recorder.swift:494:16: warning: capture of 'flag' with non-Sendable type 'UnsafeMutablePointer<UInt8>' in a '@Sendable' closure
+            if flag.pointee == 0 {
+               ^
+Swift.UnsafeMutablePointer:1:23: note: generic struct 'UnsafeMutablePointer' does not conform to the 'Sendable' protocol
+@frozen public struct UnsafeMutablePointer<Pointee> : Copyable where Pointee : ~Copyable {
+                      ^
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Helpers/AudioDevices.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+/Users/leandroalmeida/swift-scribe/Scribe/Helpers/AudioDevices.swift:53:78: warning: forming 'UnsafeMutableRawPointer' to a variable of type 'CFString'; this is likely incorrect because 'CFString' may contain an object reference.
+            if AudioObjectGetPropertyData(dev, &nameAddr, 0, nil, &nameSize, &name) != noErr { continue }
+                                                                             ^
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Helpers/BufferConversion.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 Compiling\ FoundationModelsHelper.swift,\ Helpers.swift,\ InferenceExecutor.swift,\ Log.swift,\ MicrophoneSelector.swift,\ ModelWarmupService.swift /Users/leandroalmeida/swift-scribe/Scribe/Helpers/FoundationModelsHelper.swift /Users/leandroalmeida/swift-scribe/Scribe/Helpers/Helpers.swift /Users/leandroalmeida/swift-scribe/Scribe/Helpers/InferenceExecutor.swift /Users/leandroalmeida/swift-scribe/Scribe/Helpers/Log.swift /Users/leandroalmeida/swift-scribe/Scribe/Helpers/MicrophoneSelector.swift /Users/leandroalmeida/swift-scribe/Scribe/Helpers/ModelWarmupService.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Helpers/FoundationModelsHelper.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Helpers/Helpers.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Helpers/InferenceExecutor.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Helpers/Log.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Helpers/MicrophoneSelector.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Helpers/ModelWarmupService.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ SwiftScribe (in target 'SwiftScribe' from project 'SwiftScribe')
+
+EmitSwiftModule normal arm64 (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+/Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Diarizer/SegmentationProcessor.swift:29:58: warning: use of protocol 'MLFeatureProvider' as a type must be written 'any MLFeatureProvider'; this will be an error in a future Swift language mode
+    ) throws -> (segments: [[[Float]]], featureProvider: MLFeatureProvider) {
+                                                         ^~~~~~~~~~~~~~~~~
+                                                         any MLFeatureProvider
+/Users/leandroalmeida/swift-scribe/Scribe/Audio/Recorder.swift:45:29: warning: use of protocol 'NSObjectProtocol' as a type must be written 'any NSObjectProtocol'; this will be an error in a future Swift language mode
+    private var observers: [NSObjectProtocol] = []
+                            ^~~~~~~~~~~~~~~~
+                            any NSObjectProtocol
+
+SwiftCompile normal arm64 Compiling\ FloatArrayCodec.swift,\ MemoModel.swift,\ SpeakerModels.swift,\ Transcription.swift,\ BannerOverlayView.swift,\ FinishedMemoContentView.swift /Users/leandroalmeida/swift-scribe/Scribe/Models/FloatArrayCodec.swift /Users/leandroalmeida/swift-scribe/Scribe/Models/MemoModel.swift /Users/leandroalmeida/swift-scribe/Scribe/Models/SpeakerModels.swift /Users/leandroalmeida/swift-scribe/Scribe/Transcription/Transcription.swift /Users/leandroalmeida/swift-scribe/Scribe/Views/Components/BannerOverlayView.swift /Users/leandroalmeida/swift-scribe/Scribe/Views/Components/FinishedMemoContentView.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Models/FloatArrayCodec.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Models/MemoModel.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Models/SpeakerModels.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Transcription/Transcription.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Views/Components/BannerOverlayView.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Views/Components/FinishedMemoContentView.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 Compiling\ IOSPrincipalToolbar.swift,\ LiveRecordingContentView.swift,\ RecordingHandlersModifier.swift,\ ContentView.swift,\ SettingsView.swift,\ SimilarityVerificationView.swift /Users/leandroalmeida/swift-scribe/Scribe/Views/Components/IOSPrincipalToolbar.swift /Users/leandroalmeida/swift-scribe/Scribe/Views/Components/LiveRecordingContentView.swift /Users/leandroalmeida/swift-scribe/Scribe/Views/Modifiers/RecordingHandlersModifier.swift /Users/leandroalmeida/swift-scribe/Scribe/Views/ContentView.swift /Users/leandroalmeida/swift-scribe/Scribe/Views/SettingsView.swift /Users/leandroalmeida/swift-scribe/Scribe/Views/SimilarityVerificationView.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Views/Components/IOSPrincipalToolbar.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Views/Components/LiveRecordingContentView.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Views/Modifiers/RecordingHandlersModifier.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Views/ContentView.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Views/SettingsView.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Views/SimilarityVerificationView.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+/Users/leandroalmeida/swift-scribe/Scribe/Views/SimilarityVerificationView.swift:201:37: warning: result of call to 'run(resultType:body:)' is unused
+                    await MainActor.run {
+                                    ^   ~
+/Users/leandroalmeida/swift-scribe/Scribe/Views/SimilarityVerificationView.swift:267:16: warning: capture of 'servedFlag' with non-Sendable type 'UnsafeMutablePointer<UInt8>' in a '@Sendable' closure
+            if servedFlag.pointee == 0 {
+               ^
+Swift.UnsafeMutablePointer:1:23: note: generic struct 'UnsafeMutablePointer' does not conform to the 'Sendable' protocol
+@frozen public struct UnsafeMutablePointer<Pointee> : Copyable where Pointee : ~Copyable {
+                      ^
+/Users/leandroalmeida/swift-scribe/Scribe/Views/SimilarityVerificationView.swift:270:24: warning: capture of 'buffer' with non-Sendable type 'AVAudioPCMBuffer' in a '@Sendable' closure
+                return buffer
+                       ^
+/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk/System/Library/Frameworks/AVFAudio.framework/Headers/AVAudioBuffer.h:67:12: note: class 'AVAudioPCMBuffer' does not conform to the 'Sendable' protocol
+@interface AVAudioPCMBuffer : AVAudioBuffer
+           ^
+/Users/leandroalmeida/swift-scribe/Scribe/Views/SimilarityVerificationView.swift:2:1: warning: add '@preconcurrency' to treat 'Sendable'-related errors from module 'AVFAudio' as warnings
+import AVFoundation
+^
+@preconcurrency 
+
+SwiftCompile normal arm64 Compiling\ SpeakerManager.swift,\ SpeakerOperations.swift,\ SpeakerTypes.swift,\ ANEMemoryOptimizer.swift,\ ANEMemoryUtils.swift,\ AppLogger.swift,\ ASRConstants.swift /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Diarizer/SpeakerManager.swift /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Diarizer/SpeakerOperations.swift /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Diarizer/SpeakerTypes.swift /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Shared/ANEMemoryOptimizer.swift /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Shared/ANEMemoryUtils.swift /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Shared/AppLogger.swift /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Shared/ASRConstants.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Diarizer/SpeakerManager.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Diarizer/SpeakerOperations.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Diarizer/SpeakerTypes.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Shared/ANEMemoryOptimizer.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Shared/ANEMemoryUtils.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Shared/AppLogger.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Audio/FluidAudio/Shared/ASRConstants.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+LinkAssetCatalog /Users/leandroalmeida/swift-scribe/Scribe/Helpers/Assets.xcassets (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    builtin-linkAssetCatalog --thinned /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/assetcatalog_output/thinned --thinned-dependencies /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/assetcatalog_dependencies_thinned --thinned-info-plist-content /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/assetcatalog_generated_info.plist_thinned --unthinned /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/assetcatalog_output/unthinned --unthinned-dependencies /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/assetcatalog_dependencies_unthinned --unthinned-info-plist-content /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/assetcatalog_generated_info.plist_unthinned --output /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/Resources --plist-output /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/assetcatalog_generated_info.plist
+note: Emplaced /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/Resources/AppIcon.icns (in target 'SwiftScribe' from project 'SwiftScribe')
+note: Emplaced /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/Resources/Assets.car (in target 'SwiftScribe' from project 'SwiftScribe')
+
+SwiftCompile normal arm64 Compiling\ SpeakerEnhanceView.swift,\ SpeakerEnrollmentView.swift,\ SpeakerRenameView.swift,\ TranscriptView.swift,\ ScribeApp.swift,\ GeneratedAssetSymbols.swift /Users/leandroalmeida/swift-scribe/Scribe/Views/SpeakerEnhanceView.swift /Users/leandroalmeida/swift-scribe/Scribe/Views/SpeakerEnrollmentView.swift /Users/leandroalmeida/swift-scribe/Scribe/Views/SpeakerRenameView.swift /Users/leandroalmeida/swift-scribe/Scribe/Views/TranscriptView.swift /Users/leandroalmeida/swift-scribe/Scribe/ScribeApp.swift /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/DerivedSources/GeneratedAssetSymbols.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Views/SpeakerEnhanceView.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+/Users/leandroalmeida/swift-scribe/Scribe/Views/SpeakerEnhanceView.swift:186:16: warning: capture of 'servedFlag' with non-Sendable type 'UnsafeMutablePointer<UInt8>' in a '@Sendable' closure
+            if servedFlag.pointee == 0 {
+               ^
+Swift.UnsafeMutablePointer:1:23: note: generic struct 'UnsafeMutablePointer' does not conform to the 'Sendable' protocol
+@frozen public struct UnsafeMutablePointer<Pointee> : Copyable where Pointee : ~Copyable {
+                      ^
+/Users/leandroalmeida/swift-scribe/Scribe/Views/SpeakerEnhanceView.swift:189:24: warning: capture of 'buffer' with non-Sendable type 'AVAudioPCMBuffer' in a '@Sendable' closure
+                return buffer
+                       ^
+/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk/System/Library/Frameworks/AVFAudio.framework/Headers/AVAudioBuffer.h:67:12: note: class 'AVAudioPCMBuffer' does not conform to the 'Sendable' protocol
+@interface AVAudioPCMBuffer : AVAudioBuffer
+           ^
+/Users/leandroalmeida/swift-scribe/Scribe/Views/SpeakerEnhanceView.swift:2:1: warning: add '@preconcurrency' to treat 'Sendable'-related errors from module 'AVFAudio' as warnings
+import AVFoundation
+^
+@preconcurrency 
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Views/SpeakerEnrollmentView.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+/Users/leandroalmeida/swift-scribe/Scribe/Views/SpeakerEnrollmentView.swift:32:16: warning: capture of 'servedFlag' with non-Sendable type 'UnsafeMutablePointer<UInt8>' in a '@Sendable' closure
+            if servedFlag.pointee == 0 {
+               ^
+Swift.UnsafeMutablePointer:1:23: note: generic struct 'UnsafeMutablePointer' does not conform to the 'Sendable' protocol
+@frozen public struct UnsafeMutablePointer<Pointee> : Copyable where Pointee : ~Copyable {
+                      ^
+/Users/leandroalmeida/swift-scribe/Scribe/Views/SpeakerEnrollmentView.swift:35:24: warning: capture of 'buffer' with non-Sendable type 'AVAudioPCMBuffer' in a '@Sendable' closure
+                return buffer
+                       ^
+/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk/System/Library/Frameworks/AVFAudio.framework/Headers/AVAudioBuffer.h:67:12: note: class 'AVAudioPCMBuffer' does not conform to the 'Sendable' protocol
+@interface AVAudioPCMBuffer : AVAudioBuffer
+           ^
+/Users/leandroalmeida/swift-scribe/Scribe/Views/SpeakerEnrollmentView.swift:2:1: warning: add '@preconcurrency' to treat 'Sendable'-related errors from module 'AVFAudio' as warnings
+import AVFoundation
+^
+@preconcurrency 
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Views/SpeakerRenameView.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/Views/TranscriptView.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/swift-scribe/Scribe/ScribeApp.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftCompile normal arm64 /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/DerivedSources/GeneratedAssetSymbols.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for SwiftScribe (in target 'SwiftScribe' from project 'SwiftScribe')
+
+SwiftDriverJobDiscovery normal arm64 Compiling FoundationModelsHelper.swift, Helpers.swift, InferenceExecutor.swift, Log.swift, MicrophoneSelector.swift, ModelWarmupService.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+
+SwiftDriver\ Compilation\ Requirements SwiftScribe normal arm64 com.apple.xcode.tools.swift.compiler (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name SwiftScribe -Onone -enforce-exclusivity\=checked @/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe.SwiftFileList -DDEBUG -enable-upcoming-feature InternalImportsByDefault -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature ExistentialAny -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk -target arm64-apple-macos26.0 -g -module-cache-path /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug -F /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug -emit-localized-strings -emit-localized-strings-path /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64 -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.1-25B5042i-3885c01c3e6b6a337905948deab2002ed77eb18e28310dc39e4af1f069d89823.sdkstatcache -output-file-map /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe_const_extract_protocols.json -Xcc -iquote -Xcc /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-generated-files.hmap -Xcc -I/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-own-target-headers.hmap -Xcc -I/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-all-target-headers.hmap -Xcc -iquote -Xcc /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-project-headers.hmap -Xcc -I/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/include -Xcc -I/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/DerivedSources-normal/arm64 -Xcc -I/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/DerivedSources/arm64 -Xcc -I/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe-Swift.h -working-directory /Users/leandroalmeida/swift-scribe -experimental-emit-module-separately -disable-cmo
+
+ProcessInfoPlistFile /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/Info.plist /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/empty-SwiftScribe.plist (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    builtin-infoPlistUtility /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/empty-SwiftScribe.plist -producttype com.apple.product-type.application -genpkginfo /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/PkgInfo -expandbuildsettings -platform macosx -additionalcontentfile /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/assetcatalog_generated_info.plist -o /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/Info.plist
+
+SwiftMergeGeneratedHeaders /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/DerivedSources/SwiftScribe-Swift.h /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe-Swift.h (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    builtin-swiftHeaderTool -arch arm64 /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe-Swift.h -o /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/DerivedSources/SwiftScribe-Swift.h
+
+SwiftDriverJobDiscovery normal arm64 Compiling AudioValidation.swift, DiarizerManager.swift, DiarizerModels.swift, DiarizerTypes.swift, EmbeddingExtractor.swift, SegmentationProcessor.swift, SlidingWindow.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+
+Copy /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.swiftmodule/arm64-apple-macos.swiftmodule /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe.swiftmodule (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe.swiftmodule /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.swiftmodule/arm64-apple-macos.swiftmodule
+
+Copy /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.swiftmodule/arm64-apple-macos.swiftdoc /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe.swiftdoc (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe.swiftdoc /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.swiftmodule/arm64-apple-macos.swiftdoc
+
+Copy /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.swiftmodule/arm64-apple-macos.abi.json /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe.abi.json (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe.abi.json /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.swiftmodule/arm64-apple-macos.abi.json
+
+Copy /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.swiftmodule/Project/arm64-apple-macos.swiftsourceinfo /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe.swiftsourceinfo (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe.swiftsourceinfo /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.swiftmodule/Project/arm64-apple-macos.swiftsourceinfo
+
+SwiftDriverJobDiscovery normal arm64 Compiling SpeakerManager.swift, SpeakerOperations.swift, SpeakerTypes.swift, ANEMemoryOptimizer.swift, ANEMemoryUtils.swift, AppLogger.swift, ASRConstants.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+
+SwiftDriverJobDiscovery normal arm64 Compiling SpeakerIO.swift, SpeakersDocument.swift, TranscriptDocuments.swift, TranscriptExport.swift, WaveformGenerator.swift, AppSettings.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+
+SwiftDriverJobDiscovery normal arm64 Compiling FloatArrayCodec.swift, MemoModel.swift, SpeakerModels.swift, Transcription.swift, BannerOverlayView.swift, FinishedMemoContentView.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+
+SwiftDriverJobDiscovery normal arm64 Compiling SystemInfo.swift, FluidAudioSwift.swift, ModelNames.swift, DiarizationManager.swift, Recorder.swift, AudioDevices.swift, BufferConversion.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+
+SwiftDriverJobDiscovery normal arm64 Compiling IOSPrincipalToolbar.swift, LiveRecordingContentView.swift, RecordingHandlersModifier.swift, ContentView.swift, SettingsView.swift, SimilarityVerificationView.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+
+SwiftDriverJobDiscovery normal arm64 Compiling SpeakerEnhanceView.swift, SpeakerEnrollmentView.swift, SpeakerRenameView.swift, TranscriptView.swift, ScribeApp.swift, GeneratedAssetSymbols.swift (in target 'SwiftScribe' from project 'SwiftScribe')
+
+SwiftDriver\ Compilation SwiftScribe normal arm64 com.apple.xcode.tools.swift.compiler (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    builtin-Swift-Compilation -- /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name SwiftScribe -Onone -enforce-exclusivity\=checked @/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe.SwiftFileList -DDEBUG -enable-upcoming-feature InternalImportsByDefault -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature ExistentialAny -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk -target arm64-apple-macos26.0 -g -module-cache-path /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug -F /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug -emit-localized-strings -emit-localized-strings-path /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64 -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.1-25B5042i-3885c01c3e6b6a337905948deab2002ed77eb18e28310dc39e4af1f069d89823.sdkstatcache -output-file-map /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe_const_extract_protocols.json -Xcc -iquote -Xcc /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-generated-files.hmap -Xcc -I/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-own-target-headers.hmap -Xcc -I/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-all-target-headers.hmap -Xcc -iquote -Xcc /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-project-headers.hmap -Xcc -I/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/include -Xcc -I/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/DerivedSources-normal/arm64 -Xcc -I/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/DerivedSources/arm64 -Xcc -I/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe-Swift.h -working-directory /Users/leandroalmeida/swift-scribe -experimental-emit-module-separately -disable-cmo
+
+Ld /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/MacOS/SwiftScribe.debug.dylib normal (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-macos26.0 -dynamiclib -isysroot /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk -O0 -L/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/EagerLinkingTBDs/Debug -L/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug -F/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/EagerLinkingTBDs/Debug -F/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug -filelist /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe.LinkFileList -install_name @rpath/SwiftScribe.debug.dylib -Xlinker -rpath -Xlinker @executable_path/../Frameworks -dead_strip -Xlinker -object_path_lto -Xlinker /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -dependency_info -Xlinker /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe.swiftmodule @/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe-linker-args.resp -Xlinker -alias -Xlinker _main -Xlinker ___debug_main_executable_dylib_entry_point -Xlinker -no_adhoc_codesign -o /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/MacOS/SwiftScribe.debug.dylib
+
+ConstructStubExecutorLinkFileList /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-ExecutorLinkFileList-normal-arm64.txt (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    construct-stub-executor-link-file-list /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/MacOS/SwiftScribe.debug.dylib /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/libPreviewsJITStubExecutor_no_swift_entry_point.a /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/libPreviewsJITStubExecutor.a --output /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-ExecutorLinkFileList-normal-arm64.txt
+note: Using stub executor library with Swift entry point. (in target 'SwiftScribe' from project 'SwiftScribe')
+
+Ld /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/MacOS/SwiftScribe normal (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-macos26.0 -isysroot /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk -O0 -L/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug -F/Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug -Xlinker -rpath -Xlinker @executable_path -Xlinker -rpath -Xlinker @executable_path/../Frameworks -rdynamic -Xlinker -no_deduplicate -e ___debug_blank_executor_main -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_dylib -Xlinker /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-DebugDylibPath-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_instlnm -Xlinker /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-DebugDylibInstallName-normal-arm64.txt -Xlinker -filelist -Xlinker /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe-ExecutorLinkFileList-normal-arm64.txt /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/MacOS/SwiftScribe.debug.dylib -Xlinker -no_adhoc_codesign -o /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/MacOS/SwiftScribe
+
+CopySwiftLibs /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    builtin-swiftStdLibTool --copy --verbose --sign 76CCE782828585E4395A5E560153F2401BBABF3B --scan-executable /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/MacOS/SwiftScribe.debug.dylib --scan-folder /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/Frameworks --scan-folder /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/PlugIns --scan-folder /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/Library/SystemExtensions --scan-folder /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/Extensions --platform macosx --toolchain /var/run/com.apple.security.cryptexd/mnt/com.apple.MobileAsset.MetalToolchain-v17.2.5025.6.LoxkLr/Metal.xctoolchain --toolchain /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/Frameworks --strip-bitcode --strip-bitcode-tool /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os
+
+ExtractAppIntentsMetadata (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /var/run/com.apple.security.cryptexd/mnt/com.apple.MobileAsset.MetalToolchain-v17.2.5025.6.LoxkLr/Metal.xctoolchain --module-name SwiftScribe --sdk-root /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk --xcode-version 17B5025f --platform-family macOS --deployment-target 26.0 --bundle-identifier com.swift.examples.scribe.macos --output /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/Resources --target-triple arm64-apple-macos26.0 --binary-file /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/MacOS/SwiftScribe --dependency-file /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe_dependency_info.dat --stringsdata-file /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe.SwiftFileList --metadata-file-list /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe.DependencyMetadataFileList --static-metadata-file-list /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe.DependencyStaticMetadataFileList --swift-const-vals-list /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/Objects-normal/arm64/SwiftScribe.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
+2025-09-30 21:05:47.968 appintentsmetadataprocessor[17536:2056658] Starting appintentsmetadataprocessor export
+2025-09-30 21:05:47.972 appintentsmetadataprocessor[17536:2056658] warning: Metadata extraction skipped. No AppIntents.framework dependency found.
+
+CodeSign /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/MacOS/SwiftScribe.debug.dylib (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+    Signing Identity:     "Apple Development: Leandro Almeida (X7U3957X9F)"
+    
+    /usr/bin/codesign --force --sign 76CCE782828585E4395A5E560153F2401BBABF3B -o runtime --timestamp\=none --generate-entitlement-der /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/MacOS/SwiftScribe.debug.dylib
+
+CodeSign /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/MacOS/__preview.dylib (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+    Signing Identity:     "Apple Development: Leandro Almeida (X7U3957X9F)"
+    
+    /usr/bin/codesign --force --sign 76CCE782828585E4395A5E560153F2401BBABF3B -o runtime --timestamp\=none --generate-entitlement-der /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app/Contents/MacOS/__preview.dylib
+
+CodeSign /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    
+    Signing Identity:     "Apple Development: Leandro Almeida (X7U3957X9F)"
+    
+    /usr/bin/codesign --force --sign 76CCE782828585E4395A5E560153F2401BBABF3B -o runtime --entitlements /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Intermediates.noindex/SwiftScribe.build/Debug/SwiftScribe.build/SwiftScribe.app.xcent --timestamp\=none --generate-entitlement-der /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app
+
+RegisterExecutionPolicyException /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    builtin-RegisterExecutionPolicyException /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app
+
+Validate /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    builtin-validationUtility /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app -no-validate-extension -infoplist-subpath Contents/Info.plist
+
+Touch /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    /usr/bin/touch -c /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app
+
+RegisterWithLaunchServices /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app (in target 'SwiftScribe' from project 'SwiftScribe')
+    cd /Users/leandroalmeida/swift-scribe
+    /System/Library/Frameworks/CoreServices.framework/Versions/Current/Frameworks/LaunchServices.framework/Versions/Current/Support/lsregister -f -R -trusted /Users/leandroalmeida/Library/Developer/Xcode/DerivedData/SwiftScribe-cfkjqczrqzfogldpotprdvqdzbwt/Build/Products/Debug/SwiftScribe.app
+
+** BUILD SUCCEEDED **
+

@@ -1,0 +1,76 @@
+Filtering the log data using "subsystem == "com.swift.examples.scribe""
+Timestamp                       (process)[PID]    
+2025-09-28 22:03:44.197312-0300  localhost SwiftScribe[3122]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:StateMachine] Recording toggled
+2025-09-28 22:03:44.214561-0300  localhost SwiftScribe[3122]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:AudioPipeline] Recording session starting
+2025-09-28 22:03:44.255572-0300  localhost SwiftScribe[3122]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:AudioPipeline] Mic override disabled; selecting built-in/default input
+2025-09-28 22:03:44.375898-0300  localhost SwiftScribe[3122]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:AudioPipeline] Audio session configured
+2025-09-28 22:03:44.376073-0300  localhost SwiftScribe[3122]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Speech] Speech setup starting
+2025-09-28 22:03:44.382463-0300  localhost SwiftScribe[3122]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Speech] SpeechAnalyzer created
+2025-09-28 22:03:45.166803-0300  localhost SwiftScribe[3122]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Speech] Model available for locale pt_BR
+2025-09-28 22:03:45.171340-0300  localhost SwiftScribe[3122]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Speech] Speech transcriber configured
+2025-09-28 22:03:52.304545-0300  localhost SwiftScribe[3122]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:MLWarmup] ML warmup completed in 13.409s
+2025-09-28 22:33:42.606916-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:StateMachine] Recording toggled
+2025-09-28 22:33:42.611042-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:AudioPipeline] Recording session starting
+2025-09-28 22:33:42.660703-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:AudioPipeline] Mic override disabled; selecting built-in/default input
+2025-09-28 22:33:42.908127-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:AudioPipeline] Audio session configured
+2025-09-28 22:33:42.909616-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Speech] Speech setup starting
+2025-09-28 22:33:42.918416-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Speech] SpeechAnalyzer created
+2025-09-28 22:33:43.866705-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Speech] Model available for locale pt_BR
+2025-09-28 22:33:43.878115-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Speech] Speech transcriber configured
+2025-09-28 22:33:49.289161-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:MLWarmup] ML warmup completed in 15.044s
+2025-09-28 22:33:49.303000-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:AudioPipeline] Diarization manager initialized
+2025-09-28 22:33:49.321556-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:AudioPipeline] Configuring AVAudioEngine + input tap
+2025-09-28 22:33:50.035829-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:AudioPipeline] AVAudioEngine started
+2025-09-28 22:33:50.035843-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:AudioPipeline] Motor de gravação iniciado
+2025-09-28 22:33:50.036262-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:AudioPipeline] Tap buffer=4096 isBT=1 input=airpods pro
+2025-09-28 22:33:50.150974-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:AudioPipeline] Primeiro buffer recebido
+2025-09-28 22:33:53.366110-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Diarization] Live diarization window=2.50s, time=0.81s
+2025-09-28 22:33:55.168381-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Diarization] Live diarization window=2.50s, time=0.12s
+2025-09-28 22:33:55.168435-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Diarization] Adaptive window decrease → 2.00s (ratio=0.05)
+2025-09-28 22:34:05.672041-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:StateMachine] Recording toggled
+2025-09-28 22:34:05.672138-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:StateMachine] Recording toggled
+2025-09-28 22:34:05.706335-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:AudioPipeline] Recording session stopping
+2025-09-28 22:34:05.706383-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:StateMachine] Recording stop requested, cause=user
+2025-09-28 22:34:05.785152-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:StateMachine] Recorder did stop with cause=user
+2025-09-28 22:34:06.098888-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Speech] Transcription finished and cleaned up
+2025-09-28 22:34:06.098923-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Speech] Speech transcription finished
+2025-09-28 22:34:06.150150-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Diarization] Live diarization window=2.50s, time=0.05s
+2025-09-28 22:34:06.150198-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Diarization] Adaptive window decrease → 2.00s (ratio=0.02)
+2025-09-28 22:36:59.538229-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:StateMachine] Recording toggled
+2025-09-28 22:36:59.563513-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:AudioPipeline] Recording session starting
+2025-09-28 22:36:59.564834-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:AudioPipeline] Mic override disabled; selecting built-in/default input
+2025-09-28 22:36:59.588842-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:AudioPipeline] Audio session configured
+2025-09-28 22:36:59.588926-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Speech] Speech setup starting
+2025-09-28 22:36:59.593596-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Speech] SpeechAnalyzer created
+2025-09-28 22:37:00.154176-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Speech] Model available for locale pt_BR
+2025-09-28 22:37:00.157109-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Speech] Speech transcriber configured
+2025-09-28 22:37:00.316295-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:AudioPipeline] Diarization manager initialized
+2025-09-28 22:37:00.317749-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:AudioPipeline] Configuring AVAudioEngine + input tap
+2025-09-28 22:37:00.508887-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:AudioPipeline] AVAudioEngine started
+2025-09-28 22:37:00.508918-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:AudioPipeline] Motor de gravação iniciado
+2025-09-28 22:37:00.508971-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:AudioPipeline] Tap buffer=4096 isBT=1 input=airpods pro
+2025-09-28 22:37:00.614443-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:AudioPipeline] Primeiro buffer recebido
+2025-09-28 22:37:03.228509-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Diarization] Live diarization window=2.50s, time=0.21s
+2025-09-28 22:37:03.228552-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Diarization] Adaptive window decrease → 2.00s (ratio=0.09)
+2025-09-28 22:37:05.137144-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Diarization] Live diarization window=2.00s, time=0.13s
+2025-09-28 22:37:05.137198-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Diarization] Adaptive window decrease → 1.50s (ratio=0.06)
+2025-09-28 22:37:06.626295-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Diarization] Live diarization window=1.50s, time=0.11s
+2025-09-28 22:37:06.626356-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Diarization] Adaptive window decrease → 1.00s (ratio=0.07)
+2025-09-28 22:37:07.615349-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Diarization] Live diarization window=1.00s, time=0.11s
+2025-09-28 22:37:08.613667-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Diarization] Live diarization window=1.00s, time=0.10s
+2025-09-28 22:37:09.560169-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Diarization] Live diarization window=1.00s, time=0.05s
+2025-09-28 22:37:10.613932-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Diarization] Live diarization window=1.00s, time=0.10s
+2025-09-28 22:37:11.595168-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Diarization] Live diarization window=1.00s, time=0.09s
+2025-09-28 22:37:12.526449-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Diarization] Live diarization window=1.00s, time=0.02s
+2025-09-28 22:37:13.027228-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Speech] Partial result #1
+2025-09-28 22:37:13.249543-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Speech] Partial result #2
+2025-09-28 22:37:13.249662-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Speech] Partial result #3
+2025-09-28 22:37:13.249719-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Speech] Partial result #4
+2025-09-28 22:37:13.249773-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Speech] Partial result #5
+2025-09-28 22:37:13.249825-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Speech] Partial result #6
+2025-09-28 22:37:13.249878-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Speech] Partial result #7
+2025-09-28 22:37:13.249914-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Speech] Partial result #8
+2025-09-28 22:37:13.249959-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Speech] Partial result #9
+2025-09-28 22:37:13.252044-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Speech] Partial result #10
+2025-09-28 22:37:13.252966-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Speech] Partial result #11
+2025-09-28 22:37:13.253215-0300  localhost SwiftScribe[7586]: (SwiftScribe.debug.dylib) [com.swift.examples.scribe:Speech] Partial result #12
