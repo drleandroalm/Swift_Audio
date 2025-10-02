@@ -81,3 +81,10 @@ xcuserdata/
 
 **/*.playground/playground.xcworkspace/xcshareddata/*
 !**/*.playground/playground.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+
+# Local build artifacts and traces
+build/
+DerivedData/
+CliffSwallow.app/
+Xcode_Instruments/
+*.xcarchive
