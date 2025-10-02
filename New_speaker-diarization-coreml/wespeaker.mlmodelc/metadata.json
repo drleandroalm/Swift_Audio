@@ -1,0 +1,104 @@
+[
+  {
+    "metadataOutputVersion" : "3.0",
+    "storagePrecision" : "Float32",
+    "outputSchema" : [
+      {
+        "hasShapeFlexibility" : "0",
+        "isOptional" : "0",
+        "dataType" : "Float32",
+        "formattedType" : "MultiArray (Float32)",
+        "shortDescription" : "",
+        "shape" : "[]",
+        "name" : "constant",
+        "type" : "MultiArray"
+      },
+      {
+        "hasShapeFlexibility" : "0",
+        "isOptional" : "0",
+        "dataType" : "Float32",
+        "formattedType" : "MultiArray (Float32 3 × 256)",
+        "shortDescription" : "",
+        "shape" : "[3, 256]",
+        "name" : "embedding",
+        "type" : "MultiArray"
+      }
+    ],
+    "modelParameters" : [
+
+    ],
+    "specificationVersion" : 6,
+    "mlProgramOperationTypeHistogram" : {
+      "Transpose" : 4,
+      "Square" : 2,
+      "UpsampleNearestNeighbor" : 1,
+      "Squeeze" : 5,
+      "Sub" : 5,
+      "ReduceMean" : 2,
+      "Gather" : 2,
+      "Identity" : 1,
+      "Reshape" : 1,
+      "Matmul" : 2,
+      "Concat" : 1,
+      "Add" : 19,
+      "Sqrt" : 1,
+      "RealDiv" : 3,
+      "Pad" : 2,
+      "Linear" : 2,
+      "Relu" : 33,
+      "ExpandDims" : 11,
+      "Conv" : 36,
+      "Maximum" : 1,
+      "Log" : 1,
+      "SliceByIndex" : 1001,
+      "Stack" : 1,
+      "ReduceSum" : 4,
+      "Mul" : 8
+    },
+    "computePrecision" : "Mixed (Float32, Int32)",
+    "isUpdatable" : "0",
+    "stateSchema" : [
+
+    ],
+    "availability" : {
+      "macOS" : "12.0",
+      "tvOS" : "15.0",
+      "visionOS" : "1.0",
+      "watchOS" : "8.0",
+      "iOS" : "15.0",
+      "macCatalyst" : "15.0"
+    },
+    "modelType" : {
+      "name" : "MLModelType_mlProgram"
+    },
+    "userDefinedMetadata" : {
+      "com.github.apple.coremltools.source_dialect" : "TorchScript",
+      "com.github.apple.coremltools.source" : "torch==2.6.0",
+      "com.github.apple.coremltools.version" : "8.3.0"
+    },
+    "inputSchema" : [
+      {
+        "hasShapeFlexibility" : "0",
+        "isOptional" : "0",
+        "dataType" : "Float32",
+        "formattedType" : "MultiArray (Float32 3 × 160000)",
+        "shortDescription" : "",
+        "shape" : "[3, 160000]",
+        "name" : "waveform",
+        "type" : "MultiArray"
+      },
+      {
+        "hasShapeFlexibility" : "0",
+        "isOptional" : "0",
+        "dataType" : "Float32",
+        "formattedType" : "MultiArray (Float32 3 × 589)",
+        "shortDescription" : "",
+        "shape" : "[3, 589]",
+        "name" : "mask",
+        "type" : "MultiArray"
+      }
+    ],
+    "generatedClassName" : "wespeaker",
+    "method" : "predict"
+  }
+]
