@@ -7,7 +7,13 @@ echo "[verify] Cleaning DerivedData..."
 rm -rf "$HOME/Library/Developer/Xcode/DerivedData/SwiftScribe-*" || true
 
 echo "[verify] Building macOS app (Debug, arm64)..."
-xcodebuild -scheme "$SCHEME" -destination 'platform=macOS,arch=arm64' -configuration Debug build >/dev/null
+xcodebuild -scheme "$SCHEME" \
+  -destination 'platform=macOS,arch=arm64' \
+  -configuration Debug \
+  CODE_SIGN_IDENTITY="" \
+  CODE_SIGNING_REQUIRED=NO \
+  CODE_SIGNING_ALLOWED=NO \
+  build >/dev/null
 
 MAC_APP=$(ls -d "$HOME"/Library/Developer/Xcode/DerivedData/SwiftScribe-*/Build/Products/Debug/SwiftScribe.app | tail -n1)
 if [[ ! -d "$MAC_APP" ]]; then
@@ -32,7 +38,13 @@ fi
 echo "[verify] Using simulator: $SIM_NAME"
 
 echo "[verify] Building iOS Simulator app (Debug)..."
-xcodebuild -scheme "$SCHEME" -destination "platform=iOS Simulator,name=$SIM_NAME" -configuration Debug build >/dev/null
+xcodebuild -scheme "$SCHEME" \
+  -destination "platform=iOS Simulator,name=$SIM_NAME" \
+  -configuration Debug \
+  CODE_SIGN_IDENTITY="" \
+  CODE_SIGNING_REQUIRED=NO \
+  CODE_SIGNING_ALLOWED=NO \
+  build >/dev/null
 
 IOS_APP=$(ls -d "$HOME"/Library/Developer/Xcode/DerivedData/SwiftScribe-*/Build/Products/Debug-iphonesimulator/SwiftScribe.app | tail -n1)
 if [[ ! -d "$IOS_APP" ]]; then
@@ -52,5 +64,10 @@ echo "[verify] All checks passed."
 
 # Optionally run the iOS unit test that verifies bundling in the simulator.
 echo "[verify] Running iOS unit test for bundle presence..."
-xcodebuild -scheme SwiftScribe-iOS-Tests -destination "platform=iOS Simulator,name=$SIM_NAME" test >/dev/null
+xcodebuild -scheme SwiftScribe-iOS-Tests \
+  -destination "platform=iOS Simulator,name=$SIM_NAME" \
+  CODE_SIGN_IDENTITY="" \
+  CODE_SIGNING_REQUIRED=NO \
+  CODE_SIGNING_ALLOWED=NO \
+  test >/dev/null
 echo "[verify] iOS unit test passed."

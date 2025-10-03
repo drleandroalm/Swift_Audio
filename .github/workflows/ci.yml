@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          lfs: true  # Enable Git LFS for audio files and model binaries
 
       - name: Select Xcode
         uses: maxim-lobanov/setup-xcode@v1
@@ -58,6 +60,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          lfs: true  # Enable Git LFS for audio files and model binaries
 
       - name: Select Xcode
         uses: maxim-lobanov/setup-xcode@v1
@@ -103,6 +107,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          lfs: true  # Enable Git LFS for audio files and model binaries
 
       - name: Select Xcode
         uses: maxim-lobanov/setup-xcode@v1
