@@ -777,6 +777,127 @@ sqlite3 test_artifacts/performance_trends.db "PRAGMA journal_mode=WAL;"
 
 ---
 
+## Xcode 26 Compatibility Notice
+
+**⚠️ Current Limitation**: GitHub Actions does not yet support Xcode 26 beta.
+
+### How Workflows Handle This
+
+All workflows include Xcode version checks that gracefully skip tests if Xcode < 26:
+
+**Check Logic** (added to all jobs that compile/test code):
+```yaml
+- name: Check Xcode Version Compatibility
+  id: xcode-check
+  run: |
+    XCODE_VERSION=$(xcodebuild -version | head -1 | awk '{print $2}')
+    MAJOR_VERSION=$(echo $XCODE_VERSION | cut -d. -f1)
+
+    if [ "$MAJOR_VERSION" -lt 26 ]; then
+      echo "⚠️  Xcode $XCODE_VERSION detected (requires Xcode 26+)"
+      echo "Skipping tests until GitHub Actions supports Xcode 26 beta"
+      echo "should_skip=true" >> $GITHUB_OUTPUT
+    else
+      echo "✅ Xcode $XCODE_VERSION detected (compatible)"
+      echo "should_skip=false" >> $GITHUB_OUTPUT
+    fi
+
+- name: Skip Notice
+  if: steps.xcode-check.outputs.should_skip == 'true'
+  run: |
+    echo "::notice title=Tests Skipped (Xcode 26 Required)::This project requires Xcode 26+ (iOS 26/macOS 26). GitHub Actions currently provides Xcode ${{ steps.xcode-check.outputs.xcode_version }}. Tests will run automatically when Xcode 26 becomes available on GitHub-hosted runners."
+```
+
+**Conditional Steps** (all build/test steps):
+```yaml
+- name: Run tests
+  if: steps.xcode-check.outputs.should_skip == 'false'
+  run: xcodebuild test ...
+```
+
+### Behavior
+
+- ✅ **Xcode 26+**: Tests run normally
+- ⚠️  **Xcode < 26**: Tests skip gracefully with informational notice (no failures)
+- 📊 **Job Status**: Shows as "success" even when skipped (not "failed")
+
+### Timeline
+
+- **Now (October 2025)**: Workflows skip tests on GitHub Actions (Xcode 16.2)
+- **Local Development**: Full test suite runs with Xcode 26.1 beta
+- **Future (Mid-2026)**: Automatic activation when GitHub Actions adds Xcode 26 support
+
+### Local Testing Recommended
+
+Run the complete test suite locally with Xcode 26.1+:
+
+```bash
+# macOS tests (18 tests, ~1.6s)
+xcodebuild -scheme SwiftScribe -destination 'platform=macOS,arch=arm64' test
+
+# iOS Simulator tests
+xcodebuild -scheme SwiftScribe -destination 'platform=iOS Simulator,name=iPhone 16 Pro' test
+
+# CLI smoke test
+Scripts/RecorderSmokeCLI/run_cli.sh Audio_Files_Tests/Audio_One_Speaker_Test.wav
+
+# Verify bundled models
+Scripts/verify_bundled_models.sh
+```
+
+### Self-Hosted Runner Setup (Optional)
+
+To enable CI immediately with Xcode 26:
+
+**Requirements**:
+1. **Hardware**: Mac with macOS 26 beta + Xcode 26.1 beta
+2. **Network**: Stable internet connection
+3. **Availability**: Mac must remain powered on and connected
+
+**Setup Steps**:
+
+1. **Register Runner**:
+   - Go to Repository Settings → Actions → Runners
+   - Click "New self-hosted runner"
+   - Select macOS and follow installation instructions
+
+2. **Install Xcode 26.1 Beta**:
+   ```bash
+   # Download from https://developer.apple.com/download/
+   # Install to /Applications/Xcode-beta.app
+   sudo xcode-select -s /Applications/Xcode-beta.app
+   ```
+
+3. **Modify Workflows**:
+   ```yaml
+   # Change from:
+   runs-on: macos-14
+
+   # To:
+   runs-on: self-hosted
+   ```
+
+4. **Security Considerations**:
+   - Use dedicated Mac (not your development machine)
+   - Enable FileVault encryption
+   - Configure auto-updates for macOS and Xcode
+   - Restrict runner to this repository only
+   - Monitor runner logs regularly
+
+**Maintenance**:
+- Update Xcode beta as new versions release
+- Monitor disk space (clear DerivedData periodically)
+- Check runner connectivity status weekly
+
+**Cost Estimate**:
+- Hardware: Mac Mini M2 (~$599)
+- Power: ~5W continuous (~$5/year)
+- Maintenance: 1-2 hours/month
+
+**Alternative**: Wait for GitHub Actions Xcode 26 support (free, zero maintenance)
+
+---
+
 ## Recommendations for Production Use
 
 ### 1. Add Authentication to GitHub Pages

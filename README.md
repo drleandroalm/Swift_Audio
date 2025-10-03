@@ -257,6 +257,21 @@ Execute `xcodebuild -scheme SwiftScribe -destination 'platform=macOS' test` apó
 
 ### 🚀 CI/CD Pipeline e Performance Tracking
 
+⚠️ **Status Atual: CI Pendente Disponibilidade do Xcode 26**
+
+Os workflows do GitHub Actions estão configurados mas atualmente **pulam os testes** devido aos requisitos de versão do Xcode:
+- **Requisito**: Xcode 26+ (iOS 26/macOS 26 beta)
+- **Disponível no GitHub Actions**: Xcode 16.2 (estável)
+- **Disponibilidade Esperada**: Meados de 2026 (quando o Xcode 26 for lançado publicamente)
+
+**Status Atual**: Os workflows executam mas pulam testes com aviso informativo (sem falhas).
+
+**Para testar agora**: Execute a suíte completa de testes localmente com Xcode 26.1+ (veja comandos abaixo).
+
+**Opção de Auto-hospedagem**: Para CI imediata, configure um runner auto-hospedado com Xcode 26.1 beta (instruções em `test_artifacts/PHASE3_CI_CD_PIPELINE_SUMMARY.md`).
+
+---
+
 **GitHub Actions Workflow** (`.github/workflows/ci-test-suite.yml`):
 - **6 jobs paralelos** executados em cada push para `main` ou PR
   1. macOS Build + Testes de Unidade (ARM64)

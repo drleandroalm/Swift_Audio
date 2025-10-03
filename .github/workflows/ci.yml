@@ -19,7 +19,31 @@ jobs:
         with:
           xcode-version: latest
 
+      - name: Check Xcode Version Compatibility
+        id: xcode-check
+        run: |
+          XCODE_VERSION=$(xcodebuild -version | head -1 | awk '{print $2}')
+          MAJOR_VERSION=$(echo $XCODE_VERSION | cut -d. -f1)
+
+          echo "xcode_version=$XCODE_VERSION" >> $GITHUB_OUTPUT
+          echo "xcode_major=$MAJOR_VERSION" >> $GITHUB_OUTPUT
+
+          if [ "$MAJOR_VERSION" -lt 26 ]; then
+            echo "⚠️  Xcode $XCODE_VERSION detected (requires Xcode 26+)"
+            echo "Skipping tests until GitHub Actions supports Xcode 26 beta"
+            echo "should_skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "✅ Xcode $XCODE_VERSION detected (compatible)"
+            echo "should_skip=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Skip Notice
+        if: steps.xcode-check.outputs.should_skip == 'true'
+        run: |
+          echo "::notice title=Tests Skipped (Xcode 26 Required)::This project requires Xcode 26+ (iOS 26/macOS 26). GitHub Actions currently provides Xcode ${{ steps.xcode-check.outputs.xcode_version }}. Tests will run automatically when Xcode 26 becomes available on GitHub-hosted runners."
+
       - name: Run macOS unit tests (arm64)
+        if: steps.xcode-check.outputs.should_skip == 'false'
         run: |
           xcodebuild -scheme SwiftScribe -destination 'platform=macOS,arch=arm64' test | xcpretty || exit 1
 
@@ -36,7 +60,31 @@ jobs:
         with:
           xcode-version: latest
 
+      - name: Check Xcode Version Compatibility
+        id: xcode-check
+        run: |
+          XCODE_VERSION=$(xcodebuild -version | head -1 | awk '{print $2}')
+          MAJOR_VERSION=$(echo $XCODE_VERSION | cut -d. -f1)
+
+          echo "xcode_version=$XCODE_VERSION" >> $GITHUB_OUTPUT
+          echo "xcode_major=$MAJOR_VERSION" >> $GITHUB_OUTPUT
+
+          if [ "$MAJOR_VERSION" -lt 26 ]; then
+            echo "⚠️  Xcode $XCODE_VERSION detected (requires Xcode 26+)"
+            echo "Skipping tests until GitHub Actions supports Xcode 26 beta"
+            echo "should_skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "✅ Xcode $XCODE_VERSION detected (compatible)"
+            echo "should_skip=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Skip Notice
+        if: steps.xcode-check.outputs.should_skip == 'true'
+        run: |
+          echo "::notice title=Tests Skipped (Xcode 26 Required)::This project requires Xcode 26+ (iOS 26/macOS 26). GitHub Actions currently provides Xcode ${{ steps.xcode-check.outputs.xcode_version }}. Tests will run automatically when Xcode 26 becomes available on GitHub-hosted runners."
+
       - name: Verify bundled models (macOS + iOS) and run iOS bundling test
+        if: steps.xcode-check.outputs.should_skip == 'false'
         run: |
           bash Scripts/verify_bundled_models.sh
 
@@ -53,7 +101,31 @@ jobs:
         with:
           xcode-version: latest
 
+      - name: Check Xcode Version Compatibility
+        id: xcode-check
+        run: |
+          XCODE_VERSION=$(xcodebuild -version | head -1 | awk '{print $2}')
+          MAJOR_VERSION=$(echo $XCODE_VERSION | cut -d. -f1)
+
+          echo "xcode_version=$XCODE_VERSION" >> $GITHUB_OUTPUT
+          echo "xcode_major=$MAJOR_VERSION" >> $GITHUB_OUTPUT
+
+          if [ "$MAJOR_VERSION" -lt 26 ]; then
+            echo "⚠️  Xcode $XCODE_VERSION detected (requires Xcode 26+)"
+            echo "Skipping tests until GitHub Actions supports Xcode 26 beta"
+            echo "should_skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "✅ Xcode $XCODE_VERSION detected (compatible)"
+            echo "should_skip=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Skip Notice
+        if: steps.xcode-check.outputs.should_skip == 'true'
+        run: |
+          echo "::notice title=Tests Skipped (Xcode 26 Required)::This project requires Xcode 26+ (iOS 26/macOS 26). GitHub Actions currently provides Xcode ${{ steps.xcode-check.outputs.xcode_version }}. Tests will run automatically when Xcode 26 becomes available on GitHub-hosted runners."
+
       - name: Run RecorderSmokeCLI on reference WAV
+        if: steps.xcode-check.outputs.should_skip == 'false'
         run: |
           set -euo pipefail
           xcrun swift --version
