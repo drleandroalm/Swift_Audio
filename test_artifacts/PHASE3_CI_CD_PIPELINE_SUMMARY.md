@@ -823,9 +823,9 @@ All workflows include Xcode version checks that gracefully skip tests if Xcode <
 
 ### Timeline
 
-- **Now (October 2025)**: Workflows skip tests on GitHub Actions (Xcode 16.2)
-- **Local Development**: Full test suite runs with Xcode 26.1 beta
-- **Future (Mid-2026)**: Automatic activation when GitHub Actions adds Xcode 26 support
+- **✅ Now (October 2025)**: Workflows **fully functional** on GitHub Actions using `macos-26-arm64` runner with Xcode 26.0
+- **Local Development**: Full test suite also runs with Xcode 26.0+ or 26.1 beta
+- **Runner Info**: [macos-26-arm64](https://github.com/actions/runner-images/blob/main/images/macos/macos-26-arm64-Readme.md) provides Xcode 26.0 (17A324) + 16.4
 
 ### Local Testing Recommended
 

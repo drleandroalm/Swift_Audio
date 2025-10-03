@@ -9,7 +9,7 @@ on:
 jobs:
   macos-tests:
     name: macOS Unit Tests (ARM64)
-    runs-on: macos-14
+    runs-on: macos-26-arm64
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -49,7 +49,7 @@ jobs:
 
   ios-verify-models:
     name: iOS Model Verification (Simulator)
-    runs-on: macos-14
+    runs-on: macos-26-arm64
     needs: macos-tests
     steps:
       - name: Checkout
@@ -90,7 +90,7 @@ jobs:
 
   cli-smoke:
     name: CLI Smoke (Deterministic)
-    runs-on: macos-14
+    runs-on: macos-26-arm64
     needs: macos-tests
     steps:
       - name: Checkout

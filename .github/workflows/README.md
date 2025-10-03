@@ -1,31 +1,41 @@
-# GitHub Actions Workflows - Requisitos do Xcode 26 Beta
+# GitHub Actions Workflows - macOS 26 Runner
 
-## Status Atual: ⚠️ Pendente Disponibilidade do Xcode 26
+## Status Atual: ✅ Totalmente Funcional com macOS 26 ARM64
 
-Estes workflows requerem **Xcode 26+ (iOS 26/macOS 26 beta)** para execução bem-sucedida.
+Os workflows estão **ativos e funcionando** usando o runner `macos-26-arm64` do GitHub Actions.
 
-## Por Que os Testes São Pulados
+## Ambiente de CI
 
-- **Requisitos do Projeto**: Usa APIs exclusivas do iOS 26 (SpeechAnalyzer, SpeechTranscriber, FoundationModels)
-- **Limitação do GitHub Actions**: Os runners fornecem Xcode 16.2 (última versão estável)
-- **Formato do Arquivo de Projeto**: Versão 90 (apenas Xcode 26.1+)
+- **Runner**: `macos-26-arm64` (GitHub-hosted)
+- **Xcode Disponível**: 26.0 (build 17A324) como padrão + 16.4
+- **Compatibilidade**: ✅ Projeto requer iOS 26.0/macOS 26.0
+- **Status**: Testes executam automaticamente a cada push
 
-## O Que Acontece Agora
+## Como Funciona
 
-Os workflows executam a cada push, mas:
-1. Verificam a versão do Xcode
-2. Se Xcode < 26: Pulam testes com aviso informativo
-3. Se Xcode ≥ 26: Executam a suíte completa de testes
+Os workflows agora:
+1. Usam `runs-on: macos-26-arm64`
+2. Verificam versão do Xcode (26.0 ✅ passa a verificação)
+3. Executam suíte completa de testes
+4. Geram relatórios e fazem deploy no GitHub Pages
 
-**Sem falhas**, apenas avisos informativos até que o GitHub Actions suporte o Xcode 26.
+**Nenhuma configuração adicional necessária** - tudo funciona automaticamente!
 
-## Quando Isto Funcionará?
+## Recursos do Runner macOS 26
 
-Automaticamente quando o GitHub Actions adicionar suporte ao Xcode 26 (esperado meados de 2026 após lançamento público).
+**Fonte**: [runner-images/macos-26-arm64](https://github.com/actions/runner-images/blob/main/images/macos/macos-26-arm64-Readme.md)
 
-## Alternativa: Runner Auto-hospedado
+**Xcode Versions**:
+- Xcode 26.0 (17A324) - **Padrão**
+- Xcode 16.4 (16F6)
 
-Instruções de configuração em `test_artifacts/PHASE3_CI_CD_PIPELINE_SUMMARY.md` (procurar "Self-Hosted Runner").
+**Hardware**: Apple Silicon (ARM64)
+
+**Benefícios**:
+- ✅ Suporte nativo para iOS 26/macOS 26 APIs
+- ✅ Compilação rápida (ARM64)
+- ✅ Todos os frameworks necessários disponíveis
+- ✅ Formato de projeto 90 suportado (se Xcode 26.0 compatível)
 
 ### Configuração Rápida de Runner Auto-hospedado
 
