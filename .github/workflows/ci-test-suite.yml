@@ -32,7 +32,7 @@ jobs:
       - name: Check Xcode Version Compatibility
         id: xcode-check
         run: |
-          XCODE_VERSION=$(xcodebuild -version | head -1 | awk '{print $2}')
+          XCODE_VERSION=$(xcodebuild -version 2>/dev/null | awk 'NR==1{print $2}')
           MAJOR_VERSION=$(echo $XCODE_VERSION | cut -d. -f1)
 
           echo "xcode_version=$XCODE_VERSION" >> $GITHUB_OUTPUT
@@ -57,6 +57,9 @@ jobs:
         run: |
           xcodebuild -scheme SwiftScribe \
             -destination 'platform=macOS,arch=arm64' \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
             build | xcpretty || exit 1
 
       - name: Run unit tests
@@ -64,6 +67,9 @@ jobs:
         run: |
           xcodebuild -scheme SwiftScribe \
             -destination 'platform=macOS,arch=arm64' \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
             test | xcpretty || exit 1
 
       - name: Upload test results
@@ -93,7 +99,7 @@ jobs:
       - name: Check Xcode Version Compatibility
         id: xcode-check
         run: |
-          XCODE_VERSION=$(xcodebuild -version | head -1 | awk '{print $2}')
+          XCODE_VERSION=$(xcodebuild -version 2>/dev/null | awk 'NR==1{print $2}')
           MAJOR_VERSION=$(echo $XCODE_VERSION | cut -d. -f1)
 
           echo "xcode_version=$XCODE_VERSION" >> $GITHUB_OUTPUT
@@ -122,10 +128,17 @@ jobs:
         run: |
           xcodebuild -scheme SwiftScribe \
             -destination 'platform=iOS Simulator,name=iPhone 16 Pro' \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
             build | xcpretty || exit 1
 
       - name: Verify bundled models
         if: steps.xcode-check.outputs.should_skip == 'false'
+        env:
+          CODE_SIGN_IDENTITY: ""
+          CODE_SIGNING_REQUIRED: "NO"
+          CODE_SIGNING_ALLOWED: "NO"
         run: bash Scripts/verify_bundled_models.sh
 
       - name: Upload iOS build artifacts
@@ -154,7 +167,7 @@ jobs:
       - name: Check Xcode Version Compatibility
         id: xcode-check
         run: |
-          XCODE_VERSION=$(xcodebuild -version | head -1 | awk '{print $2}')
+          XCODE_VERSION=$(xcodebuild -version 2>/dev/null | awk 'NR==1{print $2}')
           MAJOR_VERSION=$(echo $XCODE_VERSION | cut -d. -f1)
 
           echo "xcode_version=$XCODE_VERSION" >> $GITHUB_OUTPUT
@@ -179,6 +192,9 @@ jobs:
         run: |
           xcodebuild test -scheme SwiftScribe \
             -destination 'platform=macOS,arch=arm64' \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
             -only-testing:SpeechFrameworkContractTests \
             | xcpretty || exit 1
 
@@ -187,6 +203,9 @@ jobs:
         run: |
           xcodebuild test -scheme SwiftScribe \
             -destination 'platform=macOS,arch=arm64' \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
             -only-testing:AVFoundationContractTests \
             | xcpretty || exit 1
 
@@ -195,6 +214,9 @@ jobs:
         run: |
           xcodebuild test -scheme SwiftScribe \
             -destination 'platform=macOS,arch=arm64' \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
             -only-testing:CoreMLDiarizationContractTests \
             | xcpretty || exit 1
 
@@ -203,6 +225,9 @@ jobs:
         run: |
           xcodebuild test -scheme SwiftScribe \
             -destination 'platform=macOS,arch=arm64' \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
             -only-testing:SwiftDataPersistenceContractTests \
             | xcpretty || exit 1
 
@@ -234,7 +259,7 @@ jobs:
       - name: Check Xcode Version Compatibility
         id: xcode-check
         run: |
-          XCODE_VERSION=$(xcodebuild -version | head -1 | awk '{print $2}')
+          XCODE_VERSION=$(xcodebuild -version 2>/dev/null | awk 'NR==1{print $2}')
           MAJOR_VERSION=$(echo $XCODE_VERSION | cut -d. -f1)
 
           echo "xcode_version=$XCODE_VERSION" >> $GITHUB_OUTPUT
@@ -259,6 +284,9 @@ jobs:
         run: |
           xcodebuild test -scheme SwiftScribe \
             -destination 'platform=macOS,arch=arm64' \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
             -only-testing:ChaosScenarios \
             | xcpretty || true  # Don't fail on chaos test failures
 
@@ -300,7 +328,7 @@ jobs:
       - name: Check Xcode Version Compatibility
         id: xcode-check
         run: |
-          XCODE_VERSION=$(xcodebuild -version | head -1 | awk '{print $2}')
+          XCODE_VERSION=$(xcodebuild -version 2>/dev/null | awk 'NR==1{print $2}')
           MAJOR_VERSION=$(echo $XCODE_VERSION | cut -d. -f1)
 
           echo "xcode_version=$XCODE_VERSION" >> $GITHUB_OUTPUT
