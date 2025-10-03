@@ -182,7 +182,7 @@ class ZeroCopyDiarizerFeatureProvider: NSObject, MLFeatureProvider {
 
     /// Create a provider that chains output from one model to input of another
     static func chain(
-        from outputProvider: MLFeatureProvider,
+        from outputProvider: any MLFeatureProvider,
         outputName: String,
         to inputName: String,
         additionalFeatures: [String: MLFeatureValue] = [:]

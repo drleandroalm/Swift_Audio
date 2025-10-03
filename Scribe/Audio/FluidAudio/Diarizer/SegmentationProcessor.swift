@@ -26,7 +26,7 @@ struct SegmentationProcessor {
         audioChunk: ArraySlice<Float>,
         segmentationModel: MLModel,
         chunkSize: Int = 160_000
-    ) throws -> (segments: [[[Float]]], featureProvider: MLFeatureProvider) {
+    ) throws -> (segments: [[[Float]]], featureProvider: any MLFeatureProvider) {
 
         // Create ANE-aligned audio array
         let audioArray = try memoryOptimizer.createAlignedArray(

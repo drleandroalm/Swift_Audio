@@ -85,7 +85,7 @@ jobs:
 
   # Job 2: iOS Simulator Build + Unit Tests
   ios-build-test:
-    name: iOS Build + Unit Tests (iPhone 17 Pro Simulator)
+    name: iOS Build + Unit Tests (iPhone 16 Pro Simulator)
     runs-on: macos-26
     timeout-minutes: 25
 
@@ -201,7 +201,7 @@ jobs:
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGNING_ALLOWED=NO \
-            -only-testing:SpeechFrameworkContractTests \
+            -only-testing:ScribeTests/SpeechFrameworkContractTests \
             | xcpretty || exit 1
 
       - name: Run AVFoundation Contract Tests
@@ -212,7 +212,7 @@ jobs:
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGNING_ALLOWED=NO \
-            -only-testing:AVFoundationContractTests \
+            -only-testing:ScribeTests/AVFoundationContractTests \
             | xcpretty || exit 1
 
       - name: Run CoreML Diarization Contract Tests
@@ -223,7 +223,7 @@ jobs:
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGNING_ALLOWED=NO \
-            -only-testing:CoreMLDiarizationContractTests \
+            -only-testing:ScribeTests/CoreMLDiarizationContractTests \
             | xcpretty || exit 1
 
       - name: Run SwiftData Persistence Contract Tests
@@ -234,7 +234,7 @@ jobs:
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGNING_ALLOWED=NO \
-            -only-testing:SwiftDataPersistenceContractTests \
+            -only-testing:ScribeTests/SwiftDataPersistenceContractTests \
             | xcpretty || exit 1
 
       - name: Upload contract test results
@@ -295,7 +295,7 @@ jobs:
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGNING_ALLOWED=NO \
-            -only-testing:ChaosScenarios \
+            -only-testing:ScribeTests/ChaosScenarios \
             | xcpretty || true  # Don't fail on chaos test failures
 
       - name: Generate Resilience Scorecard

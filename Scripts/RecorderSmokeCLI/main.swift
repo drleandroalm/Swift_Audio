@@ -40,7 +40,7 @@ func run() async {
             exit(2)
         }
 
-        let locale = Locale(components: .init(languageCode: .portuguese, script: nil, languageRegion: .brazil))
+        let locale = Locale(identifier: "en_US")  // Use English locale for CI compatibility
         let transcriber = SpeechTranscriber(locale: locale,
                                             transcriptionOptions: [],
                                             reportingOptions: [.volatileResults],
