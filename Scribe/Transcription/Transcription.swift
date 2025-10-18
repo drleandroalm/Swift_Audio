@@ -30,6 +30,7 @@ final class SpokenWordTranscriber: ObservableObject {
     private(set) var debugStreamedBuffers: Int = 0
     private(set) var debugStreamedFrames: Int = 0
     private var didPostFirstStream: Bool = false
+    private(set) var inputBuilderLossCount: Int = 0
     @Published var downloadProgress: Progress?
     @Published var downloadFraction: Double = 0
     private var progressCancellable: AnyCancellable?
@@ -44,6 +45,7 @@ final class SpokenWordTranscriber: ObservableObject {
 
     // Notification for first successful stream yield (main-actor visible)
     static let firstStreamNotification = Notification.Name("TranscriberFirstStreamYield")
+    static let inputBuilderLostNotification = Notification.Name("TranscriberInputBuilderLost")
 
     // Fallback locales to try when the preferred locale isn't available
     static let fallbackLocales = [
@@ -197,12 +199,13 @@ final class SpokenWordTranscriber: ObservableObject {
                 let dst = converted.format
                 print("[Transcriber DEBUG]: Stream yield #\(debugStreamedBuffers) frames=\(converted.frameLength) src[sr=\(src.sampleRate),ch=\(src.channelCount)] dst[sr=\(dst.sampleRate),ch=\(dst.channelCount)] totalFrames=\(debugStreamedFrames)")
             }
-        guard let builder = inputBuilder else {
-            Log.speech.error("Input builder unavailable when streaming audio")
-            return
-        }
-        let input = AnalyzerInput(buffer: converted)
-        builder.yield(input)
+
+            guard let builder = inputBuilder else {
+                handleMissingInputBuilder()
+                return
+            }
+            let input = AnalyzerInput(buffer: converted)
+            builder.yield(input)
         } catch {
             let src = buffer.format
             print("[Transcriber DEBUG]: ERROR converting/yielding buffer — src sr=\(src.sampleRate) ch=\(src.channelCount) len=\(buffer.frameLength), analyzer sr=\(analyzerFormat.sampleRate) ch=\(analyzerFormat.channelCount); error=\(error)")
@@ -278,6 +281,22 @@ extension SpokenWordTranscriber {
         inputBuilder = pair.continuation
     }
 }
+
+extension SpokenWordTranscriber {
+    private func handleMissingInputBuilder() {
+        inputBuilderLossCount += 1
+        Log.speech.fault("Input builder unavailable when streaming audio (lossCount=\(inputBuilderLossCount))")
+        NotificationCenter.default.post(name: Self.inputBuilderLostNotification, object: self)
+    }
+}
+
+#if DEBUG
+extension SpokenWordTranscriber {
+    func _test_dropInputBuilder() {
+        inputBuilder = nil
+    }
+}
+#endif
 
 extension SpokenWordTranscriber: SpokenWordTranscribing {}
 
