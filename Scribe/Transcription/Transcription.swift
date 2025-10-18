@@ -197,12 +197,13 @@ final class SpokenWordTranscriber: ObservableObject {
                 let dst = converted.format
                 print("[Transcriber DEBUG]: Stream yield #\(debugStreamedBuffers) frames=\(converted.frameLength) src[sr=\(src.sampleRate),ch=\(src.channelCount)] dst[sr=\(dst.sampleRate),ch=\(dst.channelCount)] totalFrames=\(debugStreamedFrames)")
             }
-        guard let builder = inputBuilder else {
-            Log.speech.error("Input builder unavailable when streaming audio")
-            return
-        }
-        let input = AnalyzerInput(buffer: converted)
-        builder.yield(input)
+
+            guard let builder = inputBuilder else {
+                Log.speech.error("Input builder unavailable when streaming audio")
+                return
+            }
+            let input = AnalyzerInput(buffer: converted)
+            builder.yield(input)
         } catch {
             let src = buffer.format
             print("[Transcriber DEBUG]: ERROR converting/yielding buffer — src sr=\(src.sampleRate) ch=\(src.channelCount) len=\(buffer.frameLength), analyzer sr=\(analyzerFormat.sampleRate) ch=\(analyzerFormat.channelCount); error=\(error)")
