@@ -6,6 +6,8 @@
 //
 
 import Foundation
+
+#if canImport(Security)
 import Security
 
 /// `SecureStorage` is responsible for securely saving, retrieving, and deleting API keys and base URLs using the Keychain on Apple devices.
@@ -132,3 +134,59 @@ public class SecureStorage {
         deleteBaseURL(for: serviceName)
     }
 }
+#else
+
+/// Linux-compatible fallback implementation that mirrors the Keychain-based
+/// API surface while storing secrets in-memory during the process lifetime.
+/// This allows the Swift Package tests to execute on non-Apple platforms where
+/// the Security framework is unavailable. Values are guarded by a serial queue
+/// to keep access thread-safe, which matches the semantics used by the
+/// Keychain-backed implementation.
+public class SecureStorage {
+    private static var storage: [String: String] = [:]
+    private static let queue = DispatchQueue(label: "com.mutantsoup.AuroraCore.secureStorage")
+
+    private static func apiKeyIdentifier(for serviceName: String) -> String {
+        "\(serviceName)_apiKey"
+    }
+
+    private static func baseURLIdentifier(for serviceName: String) -> String {
+        "\(serviceName)_baseURL"
+    }
+
+    @discardableResult
+    public static func saveAPIKey(_ key: String, for serviceName: String) -> Bool {
+        queue.sync { storage[apiKeyIdentifier(for: serviceName)] = key }
+        return true
+    }
+
+    public static func getAPIKey(for serviceName: String) -> String? {
+        queue.sync { storage[apiKeyIdentifier(for: serviceName)] }
+    }
+
+    public static func deleteAPIKey(for serviceName: String) {
+        queue.sync { _ = storage.removeValue(forKey: apiKeyIdentifier(for: serviceName)) }
+    }
+
+    @discardableResult
+    public static func saveBaseURL(_ url: String, for serviceName: String) -> Bool {
+        queue.sync { storage[baseURLIdentifier(for: serviceName)] = url }
+        return true
+    }
+
+    public static func getBaseURL(for serviceName: String) -> String? {
+        queue.sync { storage[baseURLIdentifier(for: serviceName)] }
+    }
+
+    public static func deleteBaseURL(for serviceName: String) {
+        queue.sync { _ = storage.removeValue(forKey: baseURLIdentifier(for: serviceName)) }
+    }
+
+    public static func clearAll(for serviceName: String) {
+        queue.sync {
+            _ = storage.removeValue(forKey: apiKeyIdentifier(for: serviceName))
+            _ = storage.removeValue(forKey: baseURLIdentifier(for: serviceName))
+        }
+    }
+}
+#endif
