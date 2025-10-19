@@ -6,7 +6,43 @@
 //
 
 import Foundation
+
+#if canImport(os)
 import os
+#else
+/// Minimal stand-in for `OSLogType` on platforms where the `os` module is not
+/// available (for example, Linux Swift toolchains used in CI).
+public enum OSLogType {
+    case debug
+    case info
+    case error
+    case fault
+
+    var label: String {
+        switch self {
+        case .debug:
+            return "DEBUG"
+        case .info:
+            return "INFO"
+        case .error:
+            return "ERROR"
+        case .fault:
+            return "FAULT"
+        }
+    }
+}
+
+/// Lightweight logger that mirrors the API shape of `os.Logger` enough for the
+/// rest of the codebase to compile while emitting readable console output.
+public struct Logger {
+    let subsystem: String
+    let category: String
+
+    func log(level: OSLogType, _ message: String) {
+        print("[\(subsystem)][\(category)][\(level.label)] \(message)")
+    }
+}
+#endif
 
 /// The `CustomLogger` class provides a centralized logging system for the app. It allows for logging messages at different severity levels and categories, as well as enabling or disabling debug logs.
 ///
@@ -74,11 +110,19 @@ public final class CustomLogger {
 
         // Add metadata if available
         if metadata.isEmpty {
+#if canImport(os)
             logger.log(level: level, "\(message, privacy: .public)")
+#else
+            logger.log(level: level, message)
+#endif
         } else {
             let metadataDescription = metadata.map { "\($0.key): \($0.value)" }
                 .joined(separator: ", ")
+#if canImport(os)
             logger.log(level: level, "\(message) [\(metadataDescription)]")
+#else
+            logger.log(level: level, "\(message) [\(metadataDescription)]")
+#endif
         }
     }
 
